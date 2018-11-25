@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="softsolutionModelStoreContainer" CdmEntityContainer="softsolutionEntities">
+    <EntitySetMapping Name="client_reg">
+      <EntityTypeMapping TypeName="softsolutionModel.client_reg">
+        <MappingFragment StoreEntitySet="client_reg">
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="Registraiondate" ColumnName="Registraiondate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="softsolutionModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="Empid" ColumnName="Empid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="soft_propsal">
+      <EntityTypeMapping TypeName="softsolutionModel.soft_propsal">
+        <MappingFragment StoreEntitySet="soft_propsal">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="respdoc" ColumnName="respdoc" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="respid" ColumnName="respid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login_tbl">
+      <EntityTypeMapping TypeName="softsolutionModel.login_tbl">
+        <MappingFragment StoreEntitySet="login_tbl">
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_client_reg" FunctionName="softsolutionModel.Store.sp_client_reg" />
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="softsolutionModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Backend" ColumnName="Backend" />
+          <ScalarProperty Name="Frontend" ColumnName="Frontend" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Propsal" ColumnName="Propsal" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CilentID" ColumnName="CilentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

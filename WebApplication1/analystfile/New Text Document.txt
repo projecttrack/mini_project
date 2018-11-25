@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Shopping_Cart.Admin
+{
+    public partial class view_stock : System.Web.UI.Page
+    {
+        db_shopping_cartEntities obj = new db_shopping_cartEntities();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                try
+                {
+                var product = obj.tbl_products;
+                ddl_product.DataSource = product;
+                ddl_product.DataTextField = "name";
+                ddl_product.DataValueField = "product_id";
+                ddl_product.DataBind();
+                if (ddl_product.Items.Count > 0)
+                {
+                    ddl_product.Items.Insert(0, new ListItem("---select Product---", "0"));
+                }
+                else
+                {
+                    ddl_product.Items.Add(new ListItem("---select Product---", "0"));
+                }
+
+
+                var brand = obj.tbl_brand;
+                ddl_brand.DataSource = brand;
+                ddl_brand.DataTextField = "brand_name";
+                ddl_brand.DataValueField = "brand_id";
+                ddl_brand.DataBind();
+                if (ddl_brand.Items.Count > 0)
+                {
+                    ddl_brand.Items.Insert(0, new ListItem("---select Brand---", "0"));
+                }
+                else
+                {
+                    ddl_brand.Items.Add(new ListItem("---select Brand---", "0"));
+                }
+                   
+                
+                var a = obj.sp_vw_full_stock();
+                grv_stock.DataSource = a;
+                grv_stock.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    HttpContext.Current.ClearError();
+                }
+
+            }
+        }
+
+        protected void grv_stock_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string actid = grv_stock.DataKeys[e.RowIndex].Value.ToString();
+            int id = 0;
+            if (Int32.TryParse(actid, out id))
+            {
+                Session["PRODUCT_ID"] = id;
+                Response.Redirect("~/Admin/add_stock.aspx");
+            }
+        }
+
+        protected void ddl_brand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+            int a=Convert.ToInt32(ddl_brand.SelectedItem.Value);
+            var product = obj.tbl_products.Where(x => x.brand_id == a);
+            ddl_product.DataSource = product;
+            ddl_product.DataTextField = "name";
+            ddl_product.DataValueField = "product_id";
+            ddl_product.DataBind();
+            if (ddl_product.Items.Count > 0)
+            {
+                ddl_product.Items.Insert(0, new ListItem("---select Product---", "0"));
+            }
+            else
+            {
+                ddl_product.Items.Add(new ListItem("---select Product---", "0"));
+            }
+            }
+            catch (Exception ex)
+            {
+                HttpContext.Current.ClearError();
+            }
+                   
+        }
+
+        
+    }
+}

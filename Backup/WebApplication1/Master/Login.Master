@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="WebApplication1.Master.Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+ <link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+<script type="../text/javascript" src="../Scripts/jquery-1.3.2.min.js"></script>
+<script type="../text/javascript" src="../Scripts/script.js"></script>
+<script type="../text/javascript" src="../Scripts/cufon-yui.js"></script>
+<script type="../text/javascript" src="../Scripts/arial.js"></script>
+<script type="../text/javascript" src="../Scripts/cuf_run.js"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <div class="main">
+  <div class="header">
+    <div class="logo">
+      <h1><a href="index.html"><span>soft</span> solution<small></small></a></h1>
+    </div>
+    <div class="menu_nav">
+      <ul>
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="../Common/newclient.aspx">Registration</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <div class="hbg"><img src="../images/header_images.jpg" width="653" height="271" alt="" />
+      <div class="text">
+        <h3>Creating Futures</h3>
+      </div>
+    </div>
+  </div>
+ <div class="content">
+    <div class="content_bg">
+      <div class="mainbar">
+        <div class="article">
+          <h2><span>Template License</span></h2>
+          <div class="clr"></div>
+          <p class="post-data"><a href="#" class="com fr">Comments (3)</a> <span class="date">March 16, 2018</span> &nbsp;|&nbsp; Posted by <a href="#">Owner</a> &nbsp;|&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a></p>
+          <img src="images/images_1.jpg" width="613" height="193" alt="image" />
+          <p>This is a free CSS website template by <a href="http://www.coolwebtemplates.net/" title="Website Templates">CoolWebTemplates.net</a>. This 
+work is distributed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, 
+which means that you are free to use it for any personal or commercial purpose provided you credit me in the form of a link back to <a href="http://www.coolwebtemplates.net/" title="Website Templates">CoolWebTemplates.net</a>.</p>
+          <p class="spec"> <a href="#" class="rm fl">Read more</a></p>
+          <div class="clr"></div>
+        </div>
+        <div class="article">
+          <h2><span>Lorem Ipsum</span> Dolor Sit</h2>
+          <div class="clr"></div>
+          <p class="post-data"><a href="#" class="com fr">Comments (7)</a> <span class="date">March 15, 2010</span> &nbsp;|&nbsp; Posted by <a href="#">Owner</a> &nbsp;|&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a></p>
+          <img src="images/images_2.jpg" width="613" height="193" alt="image" />
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo.</a> Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna. In tristique orci porttitor ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam.</p>
+          <p>Aenean commodo elit ac ante dignissim iaculis sit amet non velit. Donec magna sapien, molestie sit amet faucibus sit amet, fringilla in urna. Aliquam erat volutpat. Fusce a dui est. Sed in volutpat elit. Nam odio tortor, pulvinar non scelerisque in, eleifend nec nunc. Sed pretium, massa sed dictum dapibus, nibh purus posuere magna, ac porta felis lectus ut neque. Nullam sagittis ante vitae velit facilisis lacinia. Cras vehicula lacinia ornare. Duis et cursus risus. Curabitur consectetur justo sit amet odio viverra vel iaculis odio gravida. Ut imperdiet metus nec erat.</p>
+          <p class="spec"><a href="#" class="rm fl">Read more</a></p>
+          <div class="clr"></div>
+        </div>
+        <div class="pagenavi"><span class="pages">Page 1 of 2</span><span class="current">1</span><a href="#" title="2">2</a><a href="#" >&raquo;</a></div>
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <form id="form1" runat="server">
+    
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    
+    </form>
+        </div>
+        <div class="gadget">
+          <h2><span>Sponsors</span></h2>
+          <div class="clr"></div>
+          <ul class="ex_menu">
+            <li class="active"><a href="http://www.dreamtemplate.com" title="Website Templates">DreamTemplate</a> <span>Over 6,000+ Premium Web Templates</span></li>
+            <li><a href="http://www.templatesold.com" title="WordPress Themes">TemplateSOLD</a> <span>Premium WordPress &amp; Joomla Themes</span></li>
+            <li><a href="http://www.imhosted.com" title="Affordable Hosting">ImHosted.com</a> <span>Affordable Web Hosting Provider</span></li>
+            <li><a href="http://www.dreamstock.com/">DreamStock</a> <span>Unlimited Amazing Stock Photos</span></li>
+            <li><a href="http://www.evrsoft.com" title="Website Builder">Evrsoft</a> <span>Website Builder Software &amp; Tools</span></li>
+            <li><a href="http://www.csshub.com/" title="CSS Templates">CSS Hub</a> <span>Premium CSS Templates</span></li>
+          </ul>
+        </div>
+        <div class="gadget">
+          <h2 class="grey"><span>Wise Words</span></h2>
+          <div class="clr"></div>
+          <div class="testi">
+            <p><span class="q"><img src="images/quote_1.gif" width="16" height="14" alt="quote" /></span> We can let circumstances rule us, or we can take charge and rule our lives from within. <span class="q"><img src="images/quote_2.gif" width="16" height="14" alt="quote" /></span></p>
+            <p class="title"><strong>Earl Nightingale</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+    
+      <div class="clr"></div>
+   
+   <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">© Copyright <a href="#">MyWebSite</a>.</p>
+      <p class="rf">Layout by Cool <a href="http://www.coolwebtemplates.net/">Website Templates</a></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+   
+    </div>
+</body>
+</html>

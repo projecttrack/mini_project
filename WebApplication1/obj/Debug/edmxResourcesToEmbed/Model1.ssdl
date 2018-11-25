@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="softsolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Admin_Approve">
+    <Key>
+      <PropertyRef Name="clreqid" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="clreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logid" Type="int" />
+    <Property Name="proname" Type="varchar(max)" />
+    <Property Name="prodescription" Type="nvarchar(max)" />
+    <Property Name="protype" Type="varchar" MaxLength="50" />
+    <Property Name="frontend" Type="nvarchar" MaxLength="50" />
+    <Property Name="backend" Type="varchar" MaxLength="50" />
+    <Property Name="duration" Type="int" />
+    <Property Name="rangeamount" Type="int" />
+    <Property Name="senddate" Type="varchar" MaxLength="100" />
+    <Property Name="adminapprove" Type="int" />
+    <Property Name="analystapprove" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="complete" Type="bit" />
+    <Property Name="isdeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="client_reg">
+    <Key>
+      <PropertyRef Name="regid" />
+    </Key>
+    <Property Name="regid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logid" Type="int" Nullable="false" />
+    <Property Name="Fname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Countryid" Type="int" Nullable="false" />
+    <Property Name="Stateid" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bank" Type="varchar" MaxLength="50" />
+    <Property Name="Branch" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registraiondate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="login_tbl">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="usertype" Type="int" />
+    <Property Name="status" Type="bit" />
+    <Property Name="isdeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="project_team">
+    <Key>
+      <PropertyRef Name="teamid" />
+    </Key>
+    <Property Name="teamid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teamname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="leader_id" Type="int" Nullable="false" />
+    <Property Name="isdeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_analystallot">
+    <Key>
+      <PropertyRef Name="anallotid" />
+    </Key>
+    <Property Name="anallotid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="analystid" Type="int" Nullable="false" />
+    <Property Name="projid" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_anlreq">
+    <Key>
+      <PropertyRef Name="analreqid" />
+    </Key>
+    <Property Name="analreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prjid" Type="int" />
+    <Property Name="analystid" Type="int" />
+    <Property Name="reason" Type="varchar" MaxLength="100" />
+    <Property Name="enddate" Type="varchar" MaxLength="100" />
+    <Property Name="duration" Type="int" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="isdeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_assignmodule">
+    <Key>
+      <PropertyRef Name="modassignid" />
+    </Key>
+    <Property Name="modassignid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modid" Type="int" />
+    <Property Name="prjid" Type="int" />
+    <Property Name="teamid" Type="int" />
+    <Property Name="startdate" Type="varchar" MaxLength="200" />
+    <Property Name="duration" Type="int" />
+    <Property Name="enddate" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="int" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_country">
+    <Key>
+      <PropertyRef Name="Country_id" />
+    </Key>
+    <Property Name="Country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_emprequest">
+    <Key>
+      <PropertyRef Name="emp_reqid" />
+    </Key>
+    <Property Name="emp_reqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modid" Type="int" />
+    <Property Name="divid" Type="int" />
+    <Property Name="empid" Type="int" />
+    <Property Name="teamid" Type="int" />
+    <Property Name="daysneeded" Type="int" />
+    <Property Name="eenddate" Type="varchar" MaxLength="100" />
+    <Property Name="reason" Type="varchar" MaxLength="200" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_moddiv">
+    <Key>
+      <PropertyRef Name="moddivid" />
+    </Key>
+    <Property Name="moddivid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modid" Type="int" />
+    <Property Name="divname" Type="varchar" MaxLength="200" />
+    <Property Name="description" Type="varchar" MaxLength="500" />
+    <Property Name="documents" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="bit" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_moddivallot">
+    <Key>
+      <PropertyRef Name="tmodid" />
+    </Key>
+    <Property Name="tmodid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modid" Type="int" />
+    <Property Name="moddivid" Type="int" />
+    <Property Name="teamid" Type="int" />
+    <Property Name="empid" Type="int" />
+    <Property Name="startdate" Type="varchar" MaxLength="100" />
+    <Property Name="enddate" Type="varchar" MaxLength="100" />
+    <Property Name="duration" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_module">
+    <Key>
+      <PropertyRef Name="moduleid" />
+    </Key>
+    <Property Name="moduleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prjid" Type="int" />
+    <Property Name="modulename" Type="varchar" MaxLength="200" />
+    <Property Name="description" Type="varchar" MaxLength="500" />
+    <Property Name="info" Type="varchar" MaxLength="500" />
+    <Property Name="document_data" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="bit" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="completed" Type="bit" />
+    <Property Name="split" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_state">
+    <Key>
+      <PropertyRef Name="state_id" />
+    </Key>
+    <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_TLRequest">
+    <Key>
+      <PropertyRef Name="tlreqid" />
+    </Key>
+    <Property Name="tlreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prjid" Type="int" />
+    <Property Name="modid" Type="int" />
+    <Property Name="teamid" Type="int" />
+    <Property Name="daysneeded" Type="int" />
+    <Property Name="reason" Type="varchar" MaxLength="200" />
+    <Property Name="enddate" Type="varchar" MaxLength="100" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="isdeleted" Type="bit" />
+    <Property Name="complete" Type="bit" />
+  </EntityType>
+  <Function Name="sp_addanalyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_addanalyst_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="per" Type="float" Mode="In" />
+    <Parameter Name="duration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_addEmp_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="divid" Type="int" Mode="In" />
+    <Parameter Name="per" Type="float" Mode="In" />
+    <Parameter Name="duration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_addemployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_addprjleader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_addteam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leaderid" Type="int" Mode="In" />
+    <Parameter Name="teamname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_addTL_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+    <Parameter Name="per" Type="float" Mode="In" />
+    <Parameter Name="duration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Admin_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_analystallot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="analystid" Type="int" Mode="In" />
+    <Parameter Name="projid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_analystreg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_AnalystRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lid" Type="int" Mode="In" />
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="days" Type="int" Mode="In" />
+    <Parameter Name="reason" Type="varchar" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_analystsubmit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anid" Type="int" Mode="In" />
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="remark" Type="varchar" Mode="In" />
+    <Parameter Name="document" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proid" Type="int" Mode="In" />
+    <Parameter Name="startdate" Type="varchar" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+    <Parameter Name="analystid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_assign_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leaderid" Type="int" Mode="In" />
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="designation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_assignmodule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+    <Parameter Name="teamid" Type="int" Mode="In" />
+    <Parameter Name="startdate" Type="varchar" Mode="In" />
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_cancel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_check_allot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_client" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+    <Parameter Name="Frontend" Type="varchar" Mode="In" />
+    <Parameter Name="Backend" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="proname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_client_reg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fname" Type="varchar" Mode="In" />
+    <Parameter Name="Lname" Type="varchar" Mode="In" />
+    <Parameter Name="Sex" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="varchar" Mode="In" />
+    <Parameter Name="Age" Type="int" Mode="In" />
+    <Parameter Name="country" Type="int" Mode="In" />
+    <Parameter Name="State" Type="int" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_client_view" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_clientprofile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_create_division" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moduleid" Type="int" Mode="In" />
+    <Parameter Name="diname" Type="varchar" Mode="In" />
+    <Parameter Name="desc" Type="varchar" Mode="In" />
+    <Parameter Name="document" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_division_allot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="divid" Type="int" Mode="In" />
+    <Parameter Name="empid" Type="int" Mode="In" />
+    <Parameter Name="startdate" Type="varchar" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ename" Type="varchar" Mode="In" />
+    <Parameter Name="Sex" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="date" Mode="In" />
+    <Parameter Name="Age" Type="int" Mode="In" />
+    <Parameter Name="Designation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_employee_requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="divid" Type="int" Mode="In" />
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="reason" Type="varchar" Mode="In" />
+    <Parameter Name="daysneeded" Type="int" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_employee_submit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="divid" Type="int" Mode="In" />
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="document" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_incentive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empid" Type="int" Mode="In" />
+    <Parameter Name="divid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_message" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="from" Type="int" Mode="In" />
+    <Parameter Name="to" Type="int" Mode="In" />
+    <Parameter Name="message" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_modulestatus_tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+    <Parameter Name="percent" Type="float" Mode="In" />
+    <Parameter Name="duration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_msg_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="msg_id" Type="int" Mode="In" />
+    <Parameter Name="log_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_msg_delete_all" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="log_id" Type="int" Mode="In" />
+    <Parameter Name="profile_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_project_status_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_projectstatus_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="percent" Type="float" Mode="In" />
+    <Parameter Name="duration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_reject_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_split_complete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_split_prj_module" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="modulename" Type="varchar" Mode="In" />
+    <Parameter Name="desc" Type="varchar" Mode="In" />
+    <Parameter Name="doc" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_TLRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lid" Type="int" Mode="In" />
+    <Parameter Name="modid" Type="int" Mode="In" />
+    <Parameter Name="days" Type="int" Mode="In" />
+    <Parameter Name="reason" Type="varchar" Mode="In" />
+    <Parameter Name="enddate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_update_analyst_submit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_updateclient_profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="fname" Type="varchar" Mode="In" />
+    <Parameter Name="lname" Type="varchar" Mode="In" />
+    <Parameter Name="dob" Type="varchar" Mode="In" />
+    <Parameter Name="country" Type="int" Mode="In" />
+    <Parameter Name="state" Type="int" Mode="In" />
+    <Parameter Name="address" Type="varchar" Mode="In" />
+    <Parameter Name="mobile" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_view_analyst_projects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_view_chat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_view_thread" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="from" Type="int" Mode="In" />
+    <Parameter Name="to" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_view_thread_bind" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="from" Type="int" Mode="In" />
+    <Parameter Name="to" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_analyst_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_vw_analystid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clreqid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_cust_chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_cust_msg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+    <Parameter Name="prjid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_cust_prjdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_division_empid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_division_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_division_id_module" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_division_id_staus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_divisionname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_emp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_vw_emp_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_emp_request_tl_req" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_emp_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leadid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_emp_team_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leadid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_incentive_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_incentive_Tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_moddiv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_moddiv_emp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_moddiv_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moddivid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_module_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_module_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leaderid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_moduleid_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="leaderid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_msg_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="analystid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_prj_complete_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_vw_prjid_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_project_analysst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_TeamLeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_vw_tl_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_vw_tlrequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spaddprjstatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+    <Parameter Name="per" Type="float" Mode="In" />
+    <Parameter Name="exp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAdminResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anlreqid" Type="int" Mode="In" />
+    <Parameter Name="days" Type="int" Mode="In" />
+    <Parameter Name="edate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spanalystchartdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="analystid" Type="int" Mode="In" />
+    <Parameter Name="prjid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAnalystResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlreqid" Type="int" Mode="In" />
+    <Parameter Name="days" Type="int" Mode="In" />
+    <Parameter Name="edate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpChat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="priid" Type="int" Mode="In" />
+    <Parameter Name="fromid" Type="int" Mode="In" />
+    <Parameter Name="message" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpChatView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="priid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spempvwempcomplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spTlResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empreqid" Type="int" Mode="In" />
+    <Parameter Name="days" Type="int" Mode="In" />
+    <Parameter Name="edate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spTlsubmit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlid" Type="int" Mode="In" />
+    <Parameter Name="documents" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spvw_moduletl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvw_prjallot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="alogid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvw_tlmodulecomplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwmodule_assign_prj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwmodule_prj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prjid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwprevstatus_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moddivid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwstatus_Analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="analystid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwstatus_Analyst_chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="analystid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwstatus_Employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwstatus_tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tlid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spvwstatusadmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="softsolutionModelStoreContainer">
+    <EntitySet Name="Admin_Approve" EntityType="Self.Admin_Approve" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="client_reg" EntityType="Self.client_reg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login_tbl" EntityType="Self.login_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="project_team" EntityType="Self.project_team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_analystallot" EntityType="Self.tbl_analystallot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_anlreq" EntityType="Self.tbl_anlreq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_assignmodule" EntityType="Self.tbl_assignmodule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_emprequest" EntityType="Self.tbl_emprequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_moddiv" EntityType="Self.tbl_moddiv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_moddivallot" EntityType="Self.tbl_moddivallot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_module" EntityType="Self.tbl_module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_state" EntityType="Self.tbl_state" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_TLRequest" EntityType="Self.Tbl_TLRequest" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

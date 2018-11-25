@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="softsolutionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="softsolutionModelStoreContainer">
+    <EntitySet Name="client" EntityType="softsolutionModel.Store.client" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="client_reg" EntityType="softsolutionModel.Store.client_reg" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="employee" EntityType="softsolutionModel.Store.employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="login_tbl" EntityType="softsolutionModel.Store.login_tbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="soft_propsal" EntityType="softsolutionModel.Store.soft_propsal" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="CilentID" />
+    </Key>
+    <Property Name="CilentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Propsal" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Frontend" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Backend" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Time" Type="time" Nullable="false" />
+  </EntityType>
+  <EntityType Name="client_reg">
+    <Key>
+      <PropertyRef Name="regid" />
+    </Key>
+    <Property Name="regid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Lname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sex" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Country" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="State" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Mobile" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Bank" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Branch" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Registraiondate" Type="datetime" Nullable="false" />
+    <Property Name="logid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="Empid" />
+    </Key>
+    <Property Name="Empid" Type="int" Nullable="false" />
+    <Property Name="Ename" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sex" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Designation" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="login_tbl">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="usertype" Type="int" />
+  </EntityType>
+  <EntityType Name="soft_propsal">
+    <Key>
+      <PropertyRef Name="respid" />
+    </Key>
+    <Property Name="respid" Type="int" Nullable="false" />
+    <Property Name="proid" Type="int" Nullable="false" />
+    <Property Name="respdoc" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="time" Type="time" Nullable="false" />
+  </EntityType>
+  <Function Name="sp_client_reg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fname" Type="varchar" Mode="In" />
+    <Parameter Name="Lname" Type="varchar" Mode="In" />
+    <Parameter Name="Sex" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="Age" Type="int" Mode="In" />
+    <Parameter Name="country" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="int" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Bank" Type="varchar" Mode="In" />
+    <Parameter Name="Branch" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Registraiondate" Type="datetime" Mode="In" />
+    <Parameter Name="logid" Type="int" Mode="In" />
+  </Function>
+</Schema>

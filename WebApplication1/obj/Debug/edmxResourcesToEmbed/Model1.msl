@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="softsolutionModelStoreContainer" CdmEntityContainer="softsolutionEntities1">
+    <EntitySetMapping Name="login_tbl">
+      <EntityTypeMapping TypeName="softsolutionModel.login_tbl">
+        <MappingFragment StoreEntitySet="login_tbl">
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_employee" FunctionName="softsolutionModel.Store.sp_employee" />
+    <FunctionImportMapping FunctionImportName="sp_client_reg" FunctionName="softsolutionModel.Store.sp_client_reg" />
+    <FunctionImportMapping FunctionImportName="sp_cancel" FunctionName="softsolutionModel.Store.sp_cancel" />
+    <FunctionImportMapping FunctionImportName="sp_analystreg" FunctionName="softsolutionModel.Store.sp_analystreg" />
+    <FunctionImportMapping FunctionImportName="sp_analystallot" FunctionName="softsolutionModel.Store.sp_analystallot" />
+    <FunctionImportMapping FunctionImportName="sp_vw_moddiv_id" FunctionName="softsolutionModel.Store.sp_vw_moddiv_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_id_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_emp_team" FunctionName="softsolutionModel.Store.sp_vw_emp_team">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_team_Result">
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Empid" ColumnName="Empid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_division_allot" FunctionName="softsolutionModel.Store.sp_division_allot" />
+    <FunctionImportMapping FunctionImportName="sp_check_allot" FunctionName="softsolutionModel.Store.sp_check_allot" />
+    <FunctionImportMapping FunctionImportName="sp_vw_tlrequest" FunctionName="softsolutionModel.Store.sp_vw_tlrequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_tlrequest_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_create_division" FunctionName="softsolutionModel.Store.sp_create_division" />
+    <FunctionImportMapping FunctionImportName="sp_TLRequest" FunctionName="softsolutionModel.Store.sp_TLRequest" />
+    <FunctionImportMapping FunctionImportName="sp_addanalyst" FunctionName="softsolutionModel.Store.sp_addanalyst" />
+    <FunctionImportMapping FunctionImportName="sp_addprjleader" FunctionName="softsolutionModel.Store.sp_addprjleader" />
+    <FunctionImportMapping FunctionImportName="sp_addteam" FunctionName="softsolutionModel.Store.sp_addteam" />
+    <FunctionImportMapping FunctionImportName="sp_split_prj_module" FunctionName="softsolutionModel.Store.sp_split_prj_module" />
+    <FunctionImportMapping FunctionImportName="sp_vw_moddiv" FunctionName="softsolutionModel.Store.sp_vw_moddiv">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_Result">
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_employee_requests" FunctionName="softsolutionModel.Store.sp_employee_requests" />
+    <FunctionImportMapping FunctionImportName="sp_employee_submit" FunctionName="softsolutionModel.Store.sp_employee_submit" />
+    <FunctionImportMapping FunctionImportName="sp_vw_emp_request" FunctionName="softsolutionModel.Store.sp_vw_emp_request">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_request_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_emprequest">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_emprequest">
+        <MappingFragment StoreEntitySet="tbl_emprequest">
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="teamid" ColumnName="teamid" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="divid" ColumnName="divid" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spTlResponseRequest" FunctionName="softsolutionModel.Store.spTlResponseRequest" />
+    <FunctionImportMapping FunctionImportName="spempvwempcomplete" FunctionName="softsolutionModel.Store.spempvwempcomplete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spempvwempcomplete_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_assignmodule">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_assignmodule">
+        <MappingFragment StoreEntitySet="tbl_assignmodule">
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="teamid" ColumnName="teamid" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="modassignid" ColumnName="modassignid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_moddivallot">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_moddivallot">
+        <MappingFragment StoreEntitySet="tbl_moddivallot">
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="teamid" ColumnName="teamid" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spTlsubmit" FunctionName="softsolutionModel.Store.spTlsubmit" />
+    <FunctionImportMapping FunctionImportName="sp_AnalystRequest" FunctionName="softsolutionModel.Store.sp_AnalystRequest" />
+    <FunctionImportMapping FunctionImportName="spvw_tlmodulecomplete" FunctionName="softsolutionModel.Store.spvw_tlmodulecomplete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvw_tlmodulecomplete_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="teamname" ColumnName="teamname" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="tlcomplid" ColumnName="tlcomplid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_analystsubmit" FunctionName="softsolutionModel.Store.sp_analystsubmit" />
+    <FunctionImportMapping FunctionImportName="sp_vw_tl_request" FunctionName="softsolutionModel.Store.sp_vw_tl_request">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_tl_request_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="teamname" ColumnName="teamname" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="tlreqid" ColumnName="tlreqid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Tbl_TLRequest">
+      <EntityTypeMapping TypeName="softsolutionModel.Tbl_TLRequest">
+        <MappingFragment StoreEntitySet="Tbl_TLRequest">
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="complete" ColumnName="complete" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="teamid" ColumnName="teamid" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="tlreqid" ColumnName="tlreqid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spAnalystResponseRequest" FunctionName="softsolutionModel.Store.spAnalystResponseRequest" />
+    <FunctionImportMapping FunctionImportName="sp_vw_analyst_request" FunctionName="softsolutionModel.Store.sp_vw_analyst_request">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_analyst_request_Result">
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="analreqid" ColumnName="analreqid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_anlreq">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_anlreq">
+        <MappingFragment StoreEntitySet="tbl_anlreq">
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="analystid" ColumnName="analystid" />
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="analreqid" ColumnName="analreqid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spAdminResponseRequest" FunctionName="softsolutionModel.Store.spAdminResponseRequest" />
+    <FunctionImportMapping FunctionImportName="sp_vw_TeamLeader" FunctionName="softsolutionModel.Store.sp_vw_TeamLeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_TeamLeader_Result">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="project_team">
+      <EntityTypeMapping TypeName="softsolutionModel.project_team">
+        <MappingFragment StoreEntitySet="project_team">
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="leader_id" ColumnName="leader_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="teamname" ColumnName="teamname" />
+          <ScalarProperty Name="teamid" ColumnName="teamid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_client" FunctionName="softsolutionModel.Store.sp_client" />
+    <FunctionImportMapping FunctionImportName="sp_Approve" FunctionName="softsolutionModel.Store.sp_Approve" />
+    <FunctionImportMapping FunctionImportName="sp_addemployee" FunctionName="softsolutionModel.Store.sp_addemployee" />
+    <FunctionImportMapping FunctionImportName="sp_addanalyst_work_status" FunctionName="softsolutionModel.Store.sp_addanalyst_work_status" />
+    <FunctionImportMapping FunctionImportName="sp_addEmp_work_status" FunctionName="softsolutionModel.Store.sp_addEmp_work_status" />
+    <FunctionImportMapping FunctionImportName="sp_addTL_work_status" FunctionName="softsolutionModel.Store.sp_addTL_work_status" />
+    <FunctionImportMapping FunctionImportName="sp_vw_division_empid" FunctionName="softsolutionModel.Store.sp_vw_division_empid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_empid_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwprevstatus_employee" FunctionName="softsolutionModel.Store.spvwprevstatus_employee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwprevstatus_employee_Result">
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwstatus_tl" FunctionName="softsolutionModel.Store.spvwstatus_tl">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_tl_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+          <ScalarProperty Name="expduration" ColumnName="expduration" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvw_moduletl" FunctionName="softsolutionModel.Store.spvw_moduletl">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvw_moduletl_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_modulestatus_tl" FunctionName="softsolutionModel.Store.sp_modulestatus_tl" />
+    <FunctionImportMapping FunctionImportName="sp_vw_prjid_analyst" FunctionName="softsolutionModel.Store.sp_vw_prjid_analyst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_prjid_analyst_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="projid" ColumnName="projid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_projectstatus_analyst" FunctionName="softsolutionModel.Store.sp_projectstatus_analyst" />
+    <FunctionImportMapping FunctionImportName="SpChat" FunctionName="softsolutionModel.Store.SpChat" />
+    <FunctionImportMapping FunctionImportName="spaddprjstatus" FunctionName="softsolutionModel.Store.spaddprjstatus" />
+    <FunctionImportMapping FunctionImportName="spvwstatus_Analyst" FunctionName="softsolutionModel.Store.spvwstatus_Analyst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Analyst_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+          <ScalarProperty Name="expduration" ColumnName="expduration" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spanalystchartdetails" FunctionName="softsolutionModel.Store.spanalystchartdetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spanalystchartdetails_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Admin_Approve">
+      <EntityTypeMapping TypeName="softsolutionModel.Admin_Approve">
+        <MappingFragment StoreEntitySet="Admin_Approve">
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="complete" ColumnName="complete" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="analystapprove" ColumnName="analystapprove" />
+          <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+          <ScalarProperty Name="rangeamount" ColumnName="rangeamount" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="backend" ColumnName="backend" />
+          <ScalarProperty Name="frontend" ColumnName="frontend" />
+          <ScalarProperty Name="protype" ColumnName="protype" />
+          <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_client_view" FunctionName="softsolutionModel.Store.sp_client_view">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_client_view_Result">
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_view_analyst_projects" FunctionName="softsolutionModel.Store.sp_view_analyst_projects">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_view_analyst_projects_Result">
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+          <ScalarProperty Name="protype" ColumnName="protype" />
+          <ScalarProperty Name="frontend" ColumnName="frontend" />
+          <ScalarProperty Name="backend" ColumnName="backend" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_cust_prjdetails" FunctionName="softsolutionModel.Store.sp_vw_cust_prjdetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_prjdetails_Result">
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="frontend" ColumnName="frontend" />
+          <ScalarProperty Name="backend" ColumnName="backend" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+          <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+          <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvw_prjallot" FunctionName="softsolutionModel.Store.spvw_prjallot">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvw_prjallot_Result">
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_module">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_module">
+        <MappingFragment StoreEntitySet="tbl_module">
+          <ScalarProperty Name="split" ColumnName="split" />
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="document_data" ColumnName="document_data" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_emp" FunctionName="softsolutionModel.Store.sp_vw_emp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_Result">
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_division_id" FunctionName="softsolutionModel.Store.sp_vw_division_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_emp_team_status" FunctionName="softsolutionModel.Store.sp_vw_emp_team_status">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_team_status_Result">
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Empid" ColumnName="Empid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_division_id_staus" FunctionName="softsolutionModel.Store.sp_vw_division_id_staus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_staus_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_moddiv">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_moddiv">
+        <MappingFragment StoreEntitySet="tbl_moddiv">
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_split_complete" FunctionName="softsolutionModel.Store.sp_split_complete" />
+    <FunctionImportMapping FunctionImportName="sp_vw_divisionname" FunctionName="softsolutionModel.Store.sp_vw_divisionname">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_divisionname_Result">
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_moddiv_emp" FunctionName="softsolutionModel.Store.sp_vw_moddiv_emp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_emp_Result">
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwstatus_Employee" FunctionName="softsolutionModel.Store.spvwstatus_Employee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Employee_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwstatus_Analyst_chart" FunctionName="softsolutionModel.Store.spvwstatus_Analyst_chart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Analyst_chart_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_project_status_admin" FunctionName="softsolutionModel.Store.sp_project_status_admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_project_status_admin_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+          <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_cust_msg" FunctionName="softsolutionModel.Store.sp_vw_cust_msg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_msg_Result">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_msg_analyst" FunctionName="softsolutionModel.Store.sp_vw_msg_analyst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_msg_analyst_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpChatView" FunctionName="softsolutionModel.Store.SpChatView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.SpChatView_Result">
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="client_reg">
+      <EntityTypeMapping TypeName="softsolutionModel.client_reg">
+        <MappingFragment StoreEntitySet="client_reg">
+          <ScalarProperty Name="Registraiondate" ColumnName="Registraiondate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Stateid" ColumnName="Stateid" />
+          <ScalarProperty Name="Countryid" ColumnName="Countryid" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_country">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_country">
+        <MappingFragment StoreEntitySet="tbl_country">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Country_id" ColumnName="Country_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_state">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_state">
+        <MappingFragment StoreEntitySet="tbl_state">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_assign_employee" FunctionName="softsolutionModel.Store.sp_assign_employee" />
+    <FunctionImportMapping FunctionImportName="sp_vw_module_id" FunctionName="softsolutionModel.Store.sp_vw_module_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_module_id_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="document_data" ColumnName="document_data" />
+          <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_cust_chart" FunctionName="softsolutionModel.Store.sp_vw_cust_chart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_chart_Result">
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_analystallot">
+      <EntityTypeMapping TypeName="softsolutionModel.tbl_analystallot">
+        <MappingFragment StoreEntitySet="tbl_analystallot">
+          <ScalarProperty Name="completed" ColumnName="completed" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="projid" ColumnName="projid" />
+          <ScalarProperty Name="analystid" ColumnName="analystid" />
+          <ScalarProperty Name="anallotid" ColumnName="anallotid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_project_analysst" FunctionName="softsolutionModel.Store.sp_vw_project_analysst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_project_analysst_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_updateclient_profile" FunctionName="softsolutionModel.Store.sp_updateclient_profile" />
+    <FunctionImportMapping FunctionImportName="sp_view_chat" FunctionName="softsolutionModel.Store.sp_view_chat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_view_chat">
+          <ScalarProperty Name="from_id" ColumnName="from_id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_view_thread" FunctionName="softsolutionModel.Store.sp_view_thread">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_view_thread">
+          <ScalarProperty Name="msg_id" ColumnName="msg_id" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_msg_delete" FunctionName="softsolutionModel.Store.sp_msg_delete" />
+    <FunctionImportMapping FunctionImportName="sp_view_thread_bind" FunctionName="softsolutionModel.Store.sp_view_thread_bind">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_view_thread_bind">
+          <ScalarProperty Name="msg_id" ColumnName="msg_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_msg_delete_all" FunctionName="softsolutionModel.Store.sp_msg_delete_all" />
+    <FunctionImportMapping FunctionImportName="sp_message" FunctionName="softsolutionModel.Store.sp_message" />
+    <FunctionImportMapping FunctionImportName="sp_vw_analystid" FunctionName="softsolutionModel.Store.sp_vw_analystid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_analystid_Result">
+          <ScalarProperty Name="analystid" ColumnName="analystid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_clientprofile" FunctionName="softsolutionModel.Store.sp_clientprofile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_clientprofile_Result">
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwmodule_assign_prj" FunctionName="softsolutionModel.Store.spvwmodule_assign_prj">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwmodule_assign_prj_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="teamname" ColumnName="teamname" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spvwmodule_prj" FunctionName="softsolutionModel.Store.spvwmodule_prj">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwmodule_prj_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_assignmodule" FunctionName="softsolutionModel.Store.sp_assignmodule" />
+    <FunctionImportMapping FunctionImportName="sp_vw_moduleid_team" FunctionName="softsolutionModel.Store.sp_vw_moduleid_team">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moduleid_team_Result">
+          <ScalarProperty Name="modid" ColumnName="modid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_division_id_module" FunctionName="softsolutionModel.Store.sp_vw_division_id_module">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_module_Result">
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_emp_request_tl_req" FunctionName="softsolutionModel.Store.sp_vw_emp_request_tl_req">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_request_tl_req_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+          <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="divid" ColumnName="divid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reject_list" FunctionName="softsolutionModel.Store.sp_reject_list">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_reject_list_Result">
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="frontend" ColumnName="frontend" />
+          <ScalarProperty Name="backend" ColumnName="backend" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_incentive_employee" FunctionName="softsolutionModel.Store.sp_vw_incentive_employee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_incentive_employee_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="divname" ColumnName="divname" />
+          <ScalarProperty Name="incentive" ColumnName="incentive" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_incentive_Tl" FunctionName="softsolutionModel.Store.sp_vw_incentive_Tl">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_incentive_Tl_Result">
+          <ScalarProperty Name="Ename" ColumnName="Ename" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_incentive" FunctionName="softsolutionModel.Store.sp_incentive" />
+    <FunctionImportMapping FunctionImportName="spvwstatusadmin" FunctionName="softsolutionModel.Store.spvwstatusadmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.spvwstatusadmin_Result">
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_vw_prj_complete_admin" FunctionName="softsolutionModel.Store.sp_vw_prj_complete_admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_prj_complete_admin_Result">
+          <ScalarProperty Name="prjid" ColumnName="prjid" />
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="documents" ColumnName="documents" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_update_analyst_submit" FunctionName="softsolutionModel.Store.sp_update_analyst_submit" />
+    <FunctionImportMapping FunctionImportName="sp_vw_module_team" FunctionName="softsolutionModel.Store.sp_vw_module_team">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_module_team_Result">
+          <ScalarProperty Name="modulename" ColumnName="modulename" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="modid" ColumnName="modid" />
+          <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+          <ScalarProperty Name="document_data" ColumnName="document_data" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Admin_Approve" FunctionName="softsolutionModel.Store.sp_Admin_Approve">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="softsolutionModel.sp_Admin_Approve_Result">
+          <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="proname" ColumnName="proname" />
+          <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+          <ScalarProperty Name="senddate" ColumnName="senddate" />
+          <ScalarProperty Name="backend" ColumnName="backend" />
+          <ScalarProperty Name="frontend" ColumnName="frontend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

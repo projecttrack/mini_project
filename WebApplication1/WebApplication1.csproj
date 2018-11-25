@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0ADC97F8-661A-433E-83A0-4A26EA215131}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>ajax\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Admin\Add_analyst.aspx" />
+    <Content Include="Admin\Add_Employee.aspx" />
+    <Content Include="Admin\Add_Programmer.aspx" />
+    <Content Include="Admin\Add_Team.aspx" />
+    <Content Include="Admin\Add_TeamLeader.aspx" />
+    <Content Include="Admin\admin_approve.aspx" />
+    <Content Include="Admin\admin_client_view.aspx" />
+    <Content Include="Admin\Admin_vw_request.aspx" />
+    <Content Include="Admin\Admn_prj_complete.aspx" />
+    <Content Include="Admin\prj_complete.aspx" />
+    <Content Include="Analyst\Analyst_Allot.aspx" />
+    <Content Include="Analyst\analyst_home.aspx" />
+    <Content Include="Analyst\Analyst_request.aspx" />
+    <Content Include="Analyst\Analyst_Split.aspx" />
+    <Content Include="Analyst\Analyst_submit.aspx" />
+    <Content Include="Analyst\Chat.aspx" />
+    <Content Include="Analyst\Chat_analyst.aspx" />
+    <Content Include="Analyst\View_Module_Staus.aspx" />
+    <Content Include="Analyst\vw_analyst_request.aspx" />
+    <Content Include="Common\Login_Page.aspx" />
+    <Content Include="Common\Logout.aspx" />
+    <Content Include="Customer\Chat.aspx" />
+    <Content Include="Customer\client.aspx" />
+    <Content Include="Customer\Client_Profile.aspx" />
+    <Content Include="Customer\Customer_Home.aspx" />
+    <Content Include="Customer\Profile_Edit.aspx" />
+    <Content Include="Customer\Thread.aspx" />
+    <Content Include="Employee\Emp_Daily_work.aspx" />
+    <Content Include="Employee\Emp_home.aspx" />
+    <Content Include="Employee\vw_incentive.aspx" />
+    <Content Include="images\fbg_line.gif" />
+    <Content Include="images\header_images.jpg" />
+    <Content Include="images\images_1.jpg" />
+    <Content Include="images\images_2.jpg" />
+    <Content Include="images\img1.jpg" />
+    <Content Include="images\menu_hover.gif" />
+    <Content Include="images\menu_link.gif" />
+    <Content Include="images\page2_img4.jpg" />
+    <Content Include="images\page4_img1.jpg" />
+    <Content Include="images\pic_1.jpg" />
+    <Content Include="images\pic_2.jpg" />
+    <Content Include="images\pic_3.jpg" />
+    <Content Include="images\pic_4.jpg" />
+    <Content Include="images\pic_5.jpg" />
+    <Content Include="images\pic_6.jpg" />
+    <Content Include="images\portfolio-businessman-colleages.jpg" />
+    <Content Include="images\quote_1.gif" />
+    <Content Include="images\quote_2.gif" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\submit.gif" />
+    <Content Include="images\userpic.gif" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Module_creation.aspx" />
+    <Content Include="Common\newclient.aspx" />
+    <Content Include="Scripts\arial.js" />
+    <Content Include="Scripts\cufon-yui.js" />
+    <Content Include="Scripts\cuf_run.js" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Team_Leader\Allot_Module.aspx" />
+    <Content Include="Team_Leader\Leader_home.aspx" />
+    <Content Include="Team_Leader\Split_module.aspx" />
+    <Content Include="Team_Leader\tl_request.aspx" />
+    <Content Include="Team_Leader\Tl_request_view.aspx" />
+    <Content Include="Team_Leader\tl_vw_workstatus.aspx" />
+    <Content Include="Team_Leader\tl_submit.aspx" />
+    <Content Include="Team_Leader\vw_incentive_emp.aspx" />
+    <Content Include="Test\Test.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add_analyst.aspx.cs">
+      <DependentUpon>Add_analyst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_analyst.aspx.designer.cs">
+      <DependentUpon>Add_analyst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add_Employee.aspx.cs">
+      <DependentUpon>Add_Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_Employee.aspx.designer.cs">
+      <DependentUpon>Add_Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add_Programmer.aspx.cs">
+      <DependentUpon>Add_Programmer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_Programmer.aspx.designer.cs">
+      <DependentUpon>Add_Programmer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add_Team.aspx.cs">
+      <DependentUpon>Add_Team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_Team.aspx.designer.cs">
+      <DependentUpon>Add_Team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Add_TeamLeader.aspx.cs">
+      <DependentUpon>Add_TeamLeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_TeamLeader.aspx.designer.cs">
+      <DependentUpon>Add_TeamLeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\admin_approve.aspx.cs">
+      <DependentUpon>admin_approve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_approve.aspx.designer.cs">
+      <DependentUpon>admin_approve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\admin_client_view.aspx.cs">
+      <DependentUpon>admin_client_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_client_view.aspx.designer.cs">
+      <DependentUpon>admin_client_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin_vw_request.aspx.cs">
+      <DependentUpon>Admin_vw_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_vw_request.aspx.designer.cs">
+      <DependentUpon>Admin_vw_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admn_prj_complete.aspx.cs">
+      <DependentUpon>Admn_prj_complete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admn_prj_complete.aspx.designer.cs">
+      <DependentUpon>Admn_prj_complete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\prj_complete.aspx.cs">
+      <DependentUpon>prj_complete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\prj_complete.aspx.designer.cs">
+      <DependentUpon>prj_complete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Approve.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Analyst_Allot.aspx.cs">
+      <DependentUpon>Analyst_Allot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Analyst_Allot.aspx.designer.cs">
+      <DependentUpon>Analyst_Allot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\analyst_home.aspx.cs">
+      <DependentUpon>analyst_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\analyst_home.aspx.designer.cs">
+      <DependentUpon>analyst_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Analyst_request.aspx.cs">
+      <DependentUpon>Analyst_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Analyst_request.aspx.designer.cs">
+      <DependentUpon>Analyst_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Analyst_Split.aspx.cs">
+      <DependentUpon>Analyst_Split.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Analyst_Split.aspx.designer.cs">
+      <DependentUpon>Analyst_Split.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Analyst_submit.aspx.cs">
+      <DependentUpon>Analyst_submit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Analyst_submit.aspx.designer.cs">
+      <DependentUpon>Analyst_submit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Chat.aspx.designer.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\Chat_analyst.aspx.cs">
+      <DependentUpon>Chat_analyst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\Chat_analyst.aspx.designer.cs">
+      <DependentUpon>Chat_analyst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\View_Module_Staus.aspx.cs">
+      <DependentUpon>View_Module_Staus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\View_Module_Staus.aspx.designer.cs">
+      <DependentUpon>View_Module_Staus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analyst\vw_analyst_request.aspx.cs">
+      <DependentUpon>vw_analyst_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analyst\vw_analyst_request.aspx.designer.cs">
+      <DependentUpon>vw_analyst_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="client_reg.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Login_Page.aspx.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Login_Page.aspx.designer.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Chat.aspx.designer.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\client.aspx.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\client.aspx.designer.cs">
+      <DependentUpon>client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Client_Profile.aspx.cs">
+      <DependentUpon>Client_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Client_Profile.aspx.designer.cs">
+      <DependentUpon>Client_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer_Home.aspx.cs">
+      <DependentUpon>Customer_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer_Home.aspx.designer.cs">
+      <DependentUpon>Customer_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Profile_Edit.aspx.cs">
+      <DependentUpon>Profile_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Profile_Edit.aspx.designer.cs">
+      <DependentUpon>Profile_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Thread.aspx.cs">
+      <DependentUpon>Thread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Thread.aspx.designer.cs">
+      <DependentUpon>Thread.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Emp_Daily_work.aspx.cs">
+      <DependentUpon>Emp_Daily_work.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Emp_Daily_work.aspx.designer.cs">
+      <DependentUpon>Emp_Daily_work.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Emp_home.aspx.cs">
+      <DependentUpon>Emp_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Emp_home.aspx.designer.cs">
+      <DependentUpon>Emp_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\vw_incentive.aspx.cs">
+      <DependentUpon>vw_incentive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\vw_incentive.aspx.designer.cs">
+      <DependentUpon>vw_incentive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="login_tbl.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="master2.Master.cs">
+      <DependentUpon>master2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master2.Master.designer.cs">
+      <DependentUpon>master2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Analyst_Chart.Master.cs">
+      <DependentUpon>Analyst_Chart.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Analyst_Chart.Master.designer.cs">
+      <DependentUpon>Analyst_Chart.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Analyst.Master.cs">
+      <DependentUpon>Analyst.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Analyst.Master.designer.cs">
+      <DependentUpon>Analyst.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Common.Master.cs">
+      <DependentUpon>Common.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Common.Master.designer.cs">
+      <DependentUpon>Common.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Customer.Master.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Customer.Master.designer.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Customer_Home.Master.cs">
+      <DependentUpon>Customer_Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Customer_Home.Master.designer.cs">
+      <DependentUpon>Customer_Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Employee.Master.cs">
+      <DependentUpon>Employee.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Employee.Master.designer.cs">
+      <DependentUpon>Employee.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Login.Master.cs">
+      <DependentUpon>Login.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Login.Master.designer.cs">
+      <DependentUpon>Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Registration.Master.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Registration.Master.designer.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Team_leader.Master.cs">
+      <DependentUpon>Team_leader.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Team_leader.Master.designer.cs">
+      <DependentUpon>Team_leader.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\user.Master.cs">
+      <DependentUpon>user.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\user.Master.designer.cs">
+      <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Module_creation.aspx.cs">
+      <DependentUpon>Module_creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Module_creation.aspx.designer.cs">
+      <DependentUpon>Module_creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\newclient.aspx.cs">
+      <DependentUpon>newclient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\newclient.aspx.designer.cs">
+      <DependentUpon>newclient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="project.Master.cs">
+      <DependentUpon>project.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="project.Master.designer.cs">
+      <DependentUpon>project.Master</DependentUpon>
+    </Compile>
+    <Compile Include="project_team.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="spanalystchartdetails_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpChatView_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spempvwempcomplete_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwmodule_assign_prj_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwmodule_prj_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwprevstatus_employee_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwstatusadmin_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwstatus_Analyst_chart_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwstatus_Analyst_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwstatus_Employee_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvwstatus_tl_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvw_moduletl_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvw_prjallot_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spvw_tlmodulecomplete_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_Admin_Approve_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_clientprofile_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_client_view_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_project_status_admin_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_reject_list_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_view_analyst_projects_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_view_chat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_view_thread.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_view_thread_bind.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_analystid_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_analyst_request_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_cust_chart_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_cust_msg_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_cust_prjdetails_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_divisionname_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_division_empid_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_division_id_module_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_division_id_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_division_id_staus_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_emp_request_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_emp_request_tl_req_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_emp_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_emp_team_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_emp_team_status_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_incentive_employee_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_incentive_Tl_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_moddiv_emp_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_moddiv_id_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_moddiv_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_moduleid_team_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_module_id_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_module_team_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_msg_analyst_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_prjid_analyst_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_prj_complete_admin_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_project_analysst_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_TeamLeader_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_tlrequest_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_vw_tl_request_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_analystallot.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_anlreq.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_assignmodule.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_country.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_emprequest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_moddiv.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_moddivallot.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_module.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_state.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_TLRequest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\Allot_Module.aspx.cs">
+      <DependentUpon>Allot_Module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\Allot_Module.aspx.designer.cs">
+      <DependentUpon>Allot_Module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\Leader_home.aspx.cs">
+      <DependentUpon>Leader_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\Leader_home.aspx.designer.cs">
+      <DependentUpon>Leader_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\Split_module.aspx.cs">
+      <DependentUpon>Split_module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\Split_module.aspx.designer.cs">
+      <DependentUpon>Split_module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\tl_request.aspx.cs">
+      <DependentUpon>tl_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\tl_request.aspx.designer.cs">
+      <DependentUpon>tl_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\Tl_request_view.aspx.cs">
+      <DependentUpon>Tl_request_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\Tl_request_view.aspx.designer.cs">
+      <DependentUpon>Tl_request_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\tl_vw_workstatus.aspx.cs">
+      <DependentUpon>tl_vw_workstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\tl_vw_workstatus.aspx.designer.cs">
+      <DependentUpon>tl_vw_workstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\tl_submit.aspx.cs">
+      <DependentUpon>tl_submit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\tl_submit.aspx.designer.cs">
+      <DependentUpon>tl_submit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team_Leader\vw_incentive_emp.aspx.cs">
+      <DependentUpon>vw_incentive_emp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team_Leader\vw_incentive_emp.aspx.designer.cs">
+      <DependentUpon>vw_incentive_emp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admmnfile\" />
+    <Folder Include="analystfile\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="empfile\" />
+    <Folder Include="tleaderfile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site1.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="project.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="master2.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Admin.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Analyst.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Team_leader.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Employee.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Customer.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Common.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Analyst_Chart.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Customer_Home.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Registration.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\Login.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\user.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49161</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

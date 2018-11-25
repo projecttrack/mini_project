@@ -1,0 +1,2345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="softsolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Admin_Approve">
+          <Key>
+            <PropertyRef Name="clreqid" />
+          </Key>
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="clreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logid" Type="int" />
+          <Property Name="proname" Type="varchar(max)" />
+          <Property Name="prodescription" Type="nvarchar(max)" />
+          <Property Name="protype" Type="varchar" MaxLength="50" />
+          <Property Name="frontend" Type="nvarchar" MaxLength="50" />
+          <Property Name="backend" Type="varchar" MaxLength="50" />
+          <Property Name="duration" Type="int" />
+          <Property Name="rangeamount" Type="int" />
+          <Property Name="senddate" Type="varchar" MaxLength="100" />
+          <Property Name="adminapprove" Type="int" />
+          <Property Name="analystapprove" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="complete" Type="bit" />
+          <Property Name="isdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="client_reg">
+          <Key>
+            <PropertyRef Name="regid" />
+          </Key>
+          <Property Name="regid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logid" Type="int" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Countryid" Type="int" Nullable="false" />
+          <Property Name="Stateid" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bank" Type="varchar" MaxLength="50" />
+          <Property Name="Branch" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Registraiondate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login_tbl">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="usertype" Type="int" />
+          <Property Name="status" Type="bit" />
+          <Property Name="isdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="project_team">
+          <Key>
+            <PropertyRef Name="teamid" />
+          </Key>
+          <Property Name="teamid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teamname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="leader_id" Type="int" Nullable="false" />
+          <Property Name="isdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_analystallot">
+          <Key>
+            <PropertyRef Name="anallotid" />
+          </Key>
+          <Property Name="anallotid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="analystid" Type="int" Nullable="false" />
+          <Property Name="projid" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_anlreq">
+          <Key>
+            <PropertyRef Name="analreqid" />
+          </Key>
+          <Property Name="analreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prjid" Type="int" />
+          <Property Name="analystid" Type="int" />
+          <Property Name="reason" Type="varchar" MaxLength="100" />
+          <Property Name="enddate" Type="varchar" MaxLength="100" />
+          <Property Name="duration" Type="int" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="isdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_assignmodule">
+          <Key>
+            <PropertyRef Name="modassignid" />
+          </Key>
+          <Property Name="modassignid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modid" Type="int" />
+          <Property Name="prjid" Type="int" />
+          <Property Name="teamid" Type="int" />
+          <Property Name="startdate" Type="varchar" MaxLength="200" />
+          <Property Name="duration" Type="int" />
+          <Property Name="enddate" Type="varchar" MaxLength="200" />
+          <Property Name="status" Type="int" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="Country_id" />
+          </Key>
+          <Property Name="Country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_emprequest">
+          <Key>
+            <PropertyRef Name="emp_reqid" />
+          </Key>
+          <Property Name="emp_reqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modid" Type="int" />
+          <Property Name="divid" Type="int" />
+          <Property Name="empid" Type="int" />
+          <Property Name="teamid" Type="int" />
+          <Property Name="daysneeded" Type="int" />
+          <Property Name="eenddate" Type="varchar" MaxLength="100" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_moddiv">
+          <Key>
+            <PropertyRef Name="moddivid" />
+          </Key>
+          <Property Name="moddivid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modid" Type="int" />
+          <Property Name="divname" Type="varchar" MaxLength="200" />
+          <Property Name="description" Type="varchar" MaxLength="500" />
+          <Property Name="documents" Type="varchar" MaxLength="200" />
+          <Property Name="status" Type="bit" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_moddivallot">
+          <Key>
+            <PropertyRef Name="tmodid" />
+          </Key>
+          <Property Name="tmodid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modid" Type="int" />
+          <Property Name="moddivid" Type="int" />
+          <Property Name="teamid" Type="int" />
+          <Property Name="empid" Type="int" />
+          <Property Name="startdate" Type="varchar" MaxLength="100" />
+          <Property Name="enddate" Type="varchar" MaxLength="100" />
+          <Property Name="duration" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_module">
+          <Key>
+            <PropertyRef Name="moduleid" />
+          </Key>
+          <Property Name="moduleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prjid" Type="int" />
+          <Property Name="modulename" Type="varchar" MaxLength="200" />
+          <Property Name="description" Type="varchar" MaxLength="500" />
+          <Property Name="info" Type="varchar" MaxLength="500" />
+          <Property Name="document_data" Type="varchar" MaxLength="200" />
+          <Property Name="status" Type="bit" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="completed" Type="bit" />
+          <Property Name="split" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_state">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_TLRequest">
+          <Key>
+            <PropertyRef Name="tlreqid" />
+          </Key>
+          <Property Name="tlreqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prjid" Type="int" />
+          <Property Name="modid" Type="int" />
+          <Property Name="teamid" Type="int" />
+          <Property Name="daysneeded" Type="int" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+          <Property Name="enddate" Type="varchar" MaxLength="100" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="isdeleted" Type="bit" />
+          <Property Name="complete" Type="bit" />
+        </EntityType>
+        <Function Name="sp_addanalyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_addanalyst_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="per" Type="float" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_addEmp_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="divid" Type="int" Mode="In" />
+          <Parameter Name="per" Type="float" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_addemployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_addprjleader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_addteam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leaderid" Type="int" Mode="In" />
+          <Parameter Name="teamname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_addTL_work_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+          <Parameter Name="per" Type="float" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Admin_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="proid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_analystallot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="analystid" Type="int" Mode="In" />
+          <Parameter Name="projid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_analystreg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_AnalystRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lid" Type="int" Mode="In" />
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="days" Type="int" Mode="In" />
+          <Parameter Name="reason" Type="varchar" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_analystsubmit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anid" Type="int" Mode="In" />
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="remark" Type="varchar" Mode="In" />
+          <Parameter Name="document" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="proid" Type="int" Mode="In" />
+          <Parameter Name="startdate" Type="varchar" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+          <Parameter Name="analystid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_assign_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leaderid" Type="int" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="designation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_assignmodule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+          <Parameter Name="teamid" Type="int" Mode="In" />
+          <Parameter Name="startdate" Type="varchar" Mode="In" />
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_cancel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="proid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_check_allot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_client" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Type" Type="varchar" Mode="In" />
+          <Parameter Name="Frontend" Type="varchar" Mode="In" />
+          <Parameter Name="Backend" Type="varchar" Mode="In" />
+          <Parameter Name="Date" Type="varchar" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="proname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_client_reg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fname" Type="varchar" Mode="In" />
+          <Parameter Name="Lname" Type="varchar" Mode="In" />
+          <Parameter Name="Sex" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="country" Type="int" Mode="In" />
+          <Parameter Name="State" Type="int" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_client_view" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_clientprofile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_create_division" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="moduleid" Type="int" Mode="In" />
+          <Parameter Name="diname" Type="varchar" Mode="In" />
+          <Parameter Name="desc" Type="varchar" Mode="In" />
+          <Parameter Name="document" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_division_allot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="divid" Type="int" Mode="In" />
+          <Parameter Name="empid" Type="int" Mode="In" />
+          <Parameter Name="startdate" Type="varchar" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ename" Type="varchar" Mode="In" />
+          <Parameter Name="Sex" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="date" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Designation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_employee_requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="divid" Type="int" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="reason" Type="varchar" Mode="In" />
+          <Parameter Name="daysneeded" Type="int" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_employee_submit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="divid" Type="int" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="document" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_incentive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empid" Type="int" Mode="In" />
+          <Parameter Name="divid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_message" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="from" Type="int" Mode="In" />
+          <Parameter Name="to" Type="int" Mode="In" />
+          <Parameter Name="message" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_modulestatus_tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+          <Parameter Name="percent" Type="float" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_msg_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="msg_id" Type="int" Mode="In" />
+          <Parameter Name="log_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_msg_delete_all" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="log_id" Type="int" Mode="In" />
+          <Parameter Name="profile_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_project_status_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_projectstatus_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="percent" Type="float" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_reject_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_split_complete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_split_prj_module" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="modulename" Type="varchar" Mode="In" />
+          <Parameter Name="desc" Type="varchar" Mode="In" />
+          <Parameter Name="doc" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_TLRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lid" Type="int" Mode="In" />
+          <Parameter Name="modid" Type="int" Mode="In" />
+          <Parameter Name="days" Type="int" Mode="In" />
+          <Parameter Name="reason" Type="varchar" Mode="In" />
+          <Parameter Name="enddate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_update_analyst_submit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="proid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_updateclient_profile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="fname" Type="varchar" Mode="In" />
+          <Parameter Name="lname" Type="varchar" Mode="In" />
+          <Parameter Name="dob" Type="varchar" Mode="In" />
+          <Parameter Name="country" Type="int" Mode="In" />
+          <Parameter Name="state" Type="int" Mode="In" />
+          <Parameter Name="address" Type="varchar" Mode="In" />
+          <Parameter Name="mobile" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_view_analyst_projects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_view_chat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_view_thread" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="from" Type="int" Mode="In" />
+          <Parameter Name="to" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_view_thread_bind" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="from" Type="int" Mode="In" />
+          <Parameter Name="to" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_analyst_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_vw_analystid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clreqid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_cust_chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_cust_msg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="prjid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_cust_prjdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_division_empid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_division_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_division_id_module" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_division_id_staus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_divisionname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_emp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_vw_emp_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_emp_request_tl_req" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_emp_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leadid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_emp_team_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leadid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_incentive_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_incentive_Tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_moddiv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_moddiv_emp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_moddiv_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="moddivid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_module_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_module_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leaderid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_moduleid_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="leaderid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_msg_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="analystid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_prj_complete_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_vw_prjid_analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_project_analysst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_TeamLeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_vw_tl_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_vw_tlrequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spaddprjstatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+          <Parameter Name="per" Type="float" Mode="In" />
+          <Parameter Name="exp" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAdminResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anlreqid" Type="int" Mode="In" />
+          <Parameter Name="days" Type="int" Mode="In" />
+          <Parameter Name="edate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spanalystchartdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="analystid" Type="int" Mode="In" />
+          <Parameter Name="prjid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAnalystResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlreqid" Type="int" Mode="In" />
+          <Parameter Name="days" Type="int" Mode="In" />
+          <Parameter Name="edate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SpChat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="priid" Type="int" Mode="In" />
+          <Parameter Name="fromid" Type="int" Mode="In" />
+          <Parameter Name="message" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SpChatView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="priid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spempvwempcomplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTlResponseRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empreqid" Type="int" Mode="In" />
+          <Parameter Name="days" Type="int" Mode="In" />
+          <Parameter Name="edate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTlsubmit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlid" Type="int" Mode="In" />
+          <Parameter Name="documents" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spvw_moduletl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvw_prjallot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="alogid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvw_tlmodulecomplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwmodule_assign_prj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwmodule_prj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prjid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwprevstatus_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="moddivid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwstatus_Analyst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="analystid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwstatus_Analyst_chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="analystid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwstatus_Employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwstatus_tl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tlid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spvwstatusadmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="softsolutionModelStoreContainer">
+          <EntitySet Name="Admin_Approve" EntityType="Self.Admin_Approve" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="client_reg" EntityType="Self.client_reg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login_tbl" EntityType="Self.login_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_team" EntityType="Self.project_team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_analystallot" EntityType="Self.tbl_analystallot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_anlreq" EntityType="Self.tbl_anlreq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_assignmodule" EntityType="Self.tbl_assignmodule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_emprequest" EntityType="Self.tbl_emprequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_moddiv" EntityType="Self.tbl_moddiv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_moddivallot" EntityType="Self.tbl_moddivallot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_module" EntityType="Self.tbl_module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_state" EntityType="Self.tbl_state" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_TLRequest" EntityType="Self.Tbl_TLRequest" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="softsolutionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="softsolutionEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="login_tbl" EntityType="softsolutionModel.login_tbl" />
+          <FunctionImport Name="sp_employee" ReturnType="Collection(String)">
+            <Parameter Name="Ename" Mode="In" Type="String" />
+            <Parameter Name="Sex" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Designation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_client_reg" ReturnType="Collection(String)">
+            <Parameter Name="Fname" Mode="In" Type="String" />
+            <Parameter Name="Lname" Mode="In" Type="String" />
+            <Parameter Name="Sex" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="country" Mode="In" Type="Int32" />
+            <Parameter Name="State" Mode="In" Type="Int32" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cancel">
+          <Parameter Name="proid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_analystreg" ReturnType="Collection(String)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_analystallot" ReturnType="Collection(String)">
+            <Parameter Name="analystid" Mode="In" Type="Int32" />
+            <Parameter Name="projid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_moddiv_id" ReturnType="Collection(softsolutionModel.sp_vw_moddiv_id_Result)">
+          <Parameter Name="moddivid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_emp_team" ReturnType="Collection(softsolutionModel.sp_vw_emp_team_Result)">
+          <Parameter Name="leadid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_division_allot" ReturnType="Collection(String)">
+            <Parameter Name="divid" Mode="In" Type="Int32" />
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+            <Parameter Name="startdate" Mode="In" Type="String" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_check_allot" ReturnType="Collection(String)">
+          <Parameter Name="empid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_tlrequest" ReturnType="Collection(softsolutionModel.sp_vw_tlrequest_Result)">
+          <Parameter Name="anid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_create_division" ReturnType="Collection(String)">
+            <Parameter Name="moduleid" Mode="In" Type="Int32" />
+            <Parameter Name="diname" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+            <Parameter Name="document" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_TLRequest" ReturnType="Collection(String)">
+            <Parameter Name="lid" Mode="In" Type="Int32" />
+            <Parameter Name="modid" Mode="In" Type="Int32" />
+            <Parameter Name="days" Mode="In" Type="Int32" />
+            <Parameter Name="reason" Mode="In" Type="String" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addanalyst" ReturnType="Collection(String)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addprjleader" ReturnType="Collection(String)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addteam" ReturnType="Collection(String)">
+            <Parameter Name="leaderid" Mode="In" Type="Int32" />
+            <Parameter Name="teamname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_split_prj_module" ReturnType="Collection(String)">
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="modulename" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+            <Parameter Name="doc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_moddiv" ReturnType="Collection(softsolutionModel.sp_vw_moddiv_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_employee_requests" ReturnType="Collection(String)">
+            <Parameter Name="divid" Mode="In" Type="Int32" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="reason" Mode="In" Type="String" />
+            <Parameter Name="daysneeded" Mode="In" Type="Int32" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_employee_submit" ReturnType="Collection(String)">
+            <Parameter Name="divid" Mode="In" Type="Int32" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="document" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_emp_request" ReturnType="Collection(softsolutionModel.sp_vw_emp_request_Result)">
+          <Parameter Name="tlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_emprequest" EntityType="softsolutionModel.tbl_emprequest" />
+          <FunctionImport Name="spTlResponseRequest" ReturnType="Collection(String)">
+            <Parameter Name="empreqid" Mode="In" Type="Int32" />
+            <Parameter Name="days" Mode="In" Type="Int32" />
+            <Parameter Name="edate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spempvwempcomplete" ReturnType="Collection(softsolutionModel.spempvwempcomplete_Result)">
+          <Parameter Name="tlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_assignmodule" EntityType="softsolutionModel.tbl_assignmodule" />
+          <EntitySet Name="tbl_moddivallot" EntityType="softsolutionModel.tbl_moddivallot" />
+          <FunctionImport Name="spTlsubmit" ReturnType="Collection(String)">
+            <Parameter Name="tlid" Mode="In" Type="Int32" />
+            <Parameter Name="documents" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AnalystRequest" ReturnType="Collection(String)">
+            <Parameter Name="lid" Mode="In" Type="Int32" />
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="days" Mode="In" Type="Int32" />
+            <Parameter Name="reason" Mode="In" Type="String" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spvw_tlmodulecomplete" ReturnType="Collection(softsolutionModel.spvw_tlmodulecomplete_Result)">
+          <Parameter Name="lid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_analystsubmit" ReturnType="Collection(String)">
+            <Parameter Name="anid" Mode="In" Type="Int32" />
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="remark" Mode="In" Type="String" />
+            <Parameter Name="document" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_tl_request" ReturnType="Collection(softsolutionModel.sp_vw_tl_request_Result)">
+          <Parameter Name="anlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Tbl_TLRequest" EntityType="softsolutionModel.Tbl_TLRequest" />
+          <FunctionImport Name="spAnalystResponseRequest" ReturnType="Collection(String)">
+            <Parameter Name="tlreqid" Mode="In" Type="Int32" />
+            <Parameter Name="days" Mode="In" Type="Int32" />
+            <Parameter Name="edate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_analyst_request" ReturnType="Collection(softsolutionModel.sp_vw_analyst_request_Result)" />
+          <EntitySet Name="tbl_anlreq" EntityType="softsolutionModel.tbl_anlreq" />
+          <FunctionImport Name="spAdminResponseRequest" ReturnType="Collection(String)">
+            <Parameter Name="anlreqid" Mode="In" Type="Int32" />
+            <Parameter Name="days" Mode="In" Type="Int32" />
+            <Parameter Name="edate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_TeamLeader" ReturnType="Collection(softsolutionModel.sp_vw_TeamLeader_Result)" />
+          <EntitySet Name="project_team" EntityType="softsolutionModel.project_team" />
+          <FunctionImport Name="sp_client" ReturnType="Collection(String)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Frontend" Mode="In" Type="String" />
+            <Parameter Name="Backend" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="String" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="proname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Approve" ReturnType="Collection(String)">
+            <Parameter Name="proid" Mode="In" Type="Int32" />
+            <Parameter Name="startdate" Mode="In" Type="String" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+            <Parameter Name="analystid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addemployee" ReturnType="Collection(String)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addanalyst_work_status" ReturnType="Collection(String)">
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="per" Mode="In" Type="Double" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addEmp_work_status" ReturnType="Collection(String)">
+            <Parameter Name="divid" Mode="In" Type="Int32" />
+            <Parameter Name="per" Mode="In" Type="Double" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_addTL_work_status" ReturnType="Collection(String)">
+            <Parameter Name="modid" Mode="In" Type="Int32" />
+            <Parameter Name="per" Mode="In" Type="Double" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_division_empid" ReturnType="Collection(softsolutionModel.sp_vw_division_empid_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwprevstatus_employee" ReturnType="Collection(softsolutionModel.spvwprevstatus_employee_Result)">
+          <Parameter Name="moddivid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwstatus_tl" ReturnType="Collection(softsolutionModel.spvwstatus_tl_Result)">
+          <Parameter Name="tlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvw_moduletl" ReturnType="Collection(softsolutionModel.spvw_moduletl_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_modulestatus_tl" ReturnType="Collection(String)">
+            <Parameter Name="modid" Mode="In" Type="Int32" />
+            <Parameter Name="percent" Mode="In" Type="Double" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_prjid_analyst" ReturnType="Collection(softsolutionModel.sp_vw_prjid_analyst_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_projectstatus_analyst" ReturnType="Collection(String)">
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="percent" Mode="In" Type="Double" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SpChat">
+            <Parameter Name="priid" Mode="In" Type="Int32" />
+            <Parameter Name="fromid" Mode="In" Type="Int32" />
+            <Parameter Name="message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spaddprjstatus" ReturnType="Collection(String)">
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="per" Mode="In" Type="Double" />
+            <Parameter Name="exp" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwstatus_Analyst" ReturnType="Collection(softsolutionModel.spvwstatus_Analyst_Result)">
+          <Parameter Name="analystid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spanalystchartdetails" ReturnType="Collection(softsolutionModel.spanalystchartdetails_Result)">
+            <Parameter Name="analystid" Mode="In" Type="Int32" />
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Admin_Approve" EntityType="softsolutionModel.Admin_Approve" />
+          <FunctionImport Name="sp_client_view" ReturnType="Collection(softsolutionModel.sp_client_view_Result)" />
+          <FunctionImport Name="sp_view_analyst_projects" ReturnType="Collection(softsolutionModel.sp_view_analyst_projects_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_cust_prjdetails" ReturnType="Collection(softsolutionModel.sp_vw_cust_prjdetails_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvw_prjallot" ReturnType="Collection(softsolutionModel.spvw_prjallot_Result)">
+          <Parameter Name="alogid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_module" EntityType="softsolutionModel.tbl_module" />
+          <FunctionImport Name="sp_vw_emp" ReturnType="Collection(softsolutionModel.sp_vw_emp_Result)" />
+          <FunctionImport Name="sp_vw_division_id" ReturnType="Collection(softsolutionModel.sp_vw_division_id_Result)">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_emp_team_status" ReturnType="Collection(softsolutionModel.sp_vw_emp_team_status_Result)">
+          <Parameter Name="leadid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_division_id_staus" ReturnType="Collection(softsolutionModel.sp_vw_division_id_staus_Result)">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_moddiv" EntityType="softsolutionModel.tbl_moddiv" />
+          <FunctionImport Name="sp_split_complete">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_divisionname" ReturnType="Collection(softsolutionModel.sp_vw_divisionname_Result)">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_moddiv_emp" ReturnType="Collection(softsolutionModel.sp_vw_moddiv_emp_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwstatus_Employee" ReturnType="Collection(softsolutionModel.spvwstatus_Employee_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwstatus_Analyst_chart" ReturnType="Collection(softsolutionModel.spvwstatus_Analyst_chart_Result)">
+          <Parameter Name="analystid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_project_status_admin" ReturnType="Collection(softsolutionModel.sp_project_status_admin_Result)" />
+          <FunctionImport Name="sp_vw_cust_msg" ReturnType="Collection(softsolutionModel.sp_vw_cust_msg_Result)">
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_msg_analyst" ReturnType="Collection(softsolutionModel.sp_vw_msg_analyst_Result)">
+          <Parameter Name="analystid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SpChatView" ReturnType="Collection(softsolutionModel.SpChatView_Result)">
+          <Parameter Name="priid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="client_reg" EntityType="softsolutionModel.client_reg" />
+          <EntitySet Name="tbl_country" EntityType="softsolutionModel.tbl_country" />
+          <EntitySet Name="tbl_state" EntityType="softsolutionModel.tbl_state" />
+          <FunctionImport Name="sp_assign_employee" ReturnType="Collection(String)">
+            <Parameter Name="leaderid" Mode="In" Type="Int32" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="designation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_module_id" ReturnType="Collection(softsolutionModel.sp_vw_module_id_Result)">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_cust_chart" ReturnType="Collection(softsolutionModel.sp_vw_cust_chart_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_analystallot" EntityType="softsolutionModel.tbl_analystallot" />
+          <FunctionImport Name="sp_vw_project_analysst" ReturnType="Collection(softsolutionModel.sp_vw_project_analysst_Result)">
+          <Parameter Name="anlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateclient_profile" ReturnType="Collection(String)">
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="fname" Mode="In" Type="String" />
+            <Parameter Name="lname" Mode="In" Type="String" />
+            <Parameter Name="dob" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int32" />
+            <Parameter Name="state" Mode="In" Type="Int32" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_view_chat" ReturnType="Collection(softsolutionModel.sp_view_chat)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_view_thread" ReturnType="Collection(softsolutionModel.sp_view_thread)">
+            <Parameter Name="from" Mode="In" Type="Int32" />
+            <Parameter Name="to" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_msg_delete" ReturnType="Collection(String)">
+            <Parameter Name="msg_id" Mode="In" Type="Int32" />
+            <Parameter Name="log_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_view_thread_bind" ReturnType="Collection(softsolutionModel.sp_view_thread_bind)">
+            <Parameter Name="from" Mode="In" Type="Int32" />
+            <Parameter Name="to" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_msg_delete_all" ReturnType="Collection(String)">
+            <Parameter Name="log_id" Mode="In" Type="Int32" />
+            <Parameter Name="profile_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_message" ReturnType="Collection(String)">
+            <Parameter Name="from" Mode="In" Type="Int32" />
+            <Parameter Name="to" Mode="In" Type="Int32" />
+            <Parameter Name="message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_analystid" ReturnType="Collection(softsolutionModel.sp_vw_analystid_Result)">
+          <Parameter Name="clreqid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_clientprofile" ReturnType="Collection(softsolutionModel.sp_clientprofile_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwmodule_assign_prj" ReturnType="Collection(softsolutionModel.spvwmodule_assign_prj_Result)">
+          <Parameter Name="prjid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwmodule_prj" ReturnType="Collection(softsolutionModel.spvwmodule_prj_Result)">
+          <Parameter Name="prjid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_assignmodule" ReturnType="Collection(String)">
+            <Parameter Name="modid" Mode="In" Type="Int32" />
+            <Parameter Name="teamid" Mode="In" Type="Int32" />
+            <Parameter Name="startdate" Mode="In" Type="String" />
+            <Parameter Name="prjid" Mode="In" Type="Int32" />
+            <Parameter Name="enddate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_moduleid_team" ReturnType="Collection(softsolutionModel.sp_vw_moduleid_team_Result)">
+          <Parameter Name="leaderid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_division_id_module" ReturnType="Collection(softsolutionModel.sp_vw_division_id_module_Result)">
+          <Parameter Name="modid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_emp_request_tl_req" ReturnType="Collection(softsolutionModel.sp_vw_emp_request_tl_req_Result)">
+          <Parameter Name="tlid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_reject_list" ReturnType="Collection(softsolutionModel.sp_reject_list_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_incentive_employee" ReturnType="Collection(softsolutionModel.sp_vw_incentive_employee_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_incentive_Tl" ReturnType="Collection(softsolutionModel.sp_vw_incentive_Tl_Result)">
+          <Parameter Name="logid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_incentive" ReturnType="Collection(Double)">
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+            <Parameter Name="divid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spvwstatusadmin" ReturnType="Collection(softsolutionModel.spvwstatusadmin_Result)" />
+          <FunctionImport Name="sp_vw_prj_complete_admin" ReturnType="Collection(softsolutionModel.sp_vw_prj_complete_admin_Result)" />
+          <FunctionImport Name="sp_update_analyst_submit">
+          <Parameter Name="proid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_vw_module_team" ReturnType="Collection(softsolutionModel.sp_vw_module_team_Result)">
+          <Parameter Name="leaderid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Admin_Approve" ReturnType="Collection(softsolutionModel.sp_Admin_Approve_Result)">
+            <Parameter Name="proid" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="login_tbl">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="usertype" Type="Int32" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+        </EntityType>
+        <ComplexType Name="sp_vw_moddiv_id_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moddivid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_emp_team_Result">
+          <Property Type="String" Name="Ename" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Empid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_tlrequest_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Ename" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="daysneeded" Nullable="true" />
+          <Property Type="String" Name="eenddate" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="reason" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="createdon" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="emp_reqid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_moddiv_Result">
+          <Property Type="Int32" Name="modid" Nullable="true" />
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="tmodid" Nullable="false" />
+          <Property Type="Int32" Name="moddivid" Nullable="true" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="startdate" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_emp_request_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Ename" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="daysneeded" Nullable="true" />
+          <Property Type="String" Name="eenddate" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="reason" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="emp_reqid" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tbl_emprequest">
+          <Key>
+            <PropertyRef Name="emp_reqid" />
+          </Key>
+          <Property Type="Int32" Name="emp_reqid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="modid" />
+          <Property Type="Int32" Name="divid" />
+          <Property Type="Int32" Name="empid" />
+          <Property Type="Int32" Name="teamid" />
+          <Property Type="Int32" Name="daysneeded" />
+          <Property Type="String" Name="eenddate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reason" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createdon" Precision="3" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+        </EntityType>
+        <ComplexType Name="spempvwempcomplete_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Ename" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="remarks" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <EntityType Name="tbl_assignmodule">
+          <Key>
+            <PropertyRef Name="modassignid" />
+          </Key>
+          <Property Type="Int32" Name="modassignid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="modid" />
+          <Property Type="Int32" Name="teamid" />
+          <Property Type="String" Name="startdate" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="duration" />
+          <Property Type="String" Name="enddate" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+          <Property Type="Int32" Name="prjid" />
+        </EntityType>
+        <EntityType Name="tbl_moddivallot">
+          <Key>
+            <PropertyRef Name="tmodid" />
+          </Key>
+          <Property Type="Int32" Name="tmodid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="modid" />
+          <Property Type="Int32" Name="moddivid" />
+          <Property Type="Int32" Name="teamid" />
+          <Property Type="Int32" Name="empid" />
+          <Property Type="String" Name="startdate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="enddate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="duration" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+        </EntityType>
+        <ComplexType Name="spvw_tlmodulecomplete_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="teamname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="remarks" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="modid" Nullable="true" />
+          <Property Type="Int32" Name="tlcomplid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_tl_request_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="teamname" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="daysneeded" Nullable="true" />
+          <Property Type="String" Name="reason" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="tlreqid" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Tbl_TLRequest">
+          <Key>
+            <PropertyRef Name="tlreqid" />
+          </Key>
+          <Property Type="Int32" Name="tlreqid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="modid" />
+          <Property Type="Int32" Name="teamid" />
+          <Property Type="Int32" Name="daysneeded" />
+          <Property Type="String" Name="reason" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="enddate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createdon" Precision="3" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="complete" />
+          <Property Type="Int32" Name="prjid" />
+        </EntityType>
+        <ComplexType Name="sp_vw_analyst_request_Result">
+          <Property Type="String" Name="proname" Nullable="false" />
+          <Property Type="String" Name="email" Nullable="false" />
+          <Property Type="String" Name="reason" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="Int32" Name="analreqid" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tbl_anlreq">
+          <Key>
+            <PropertyRef Name="analreqid" />
+          </Key>
+          <Property Type="Int32" Name="analreqid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="prjid" />
+          <Property Type="Int32" Name="analystid" />
+          <Property Type="String" Name="reason" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="enddate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="duration" />
+          <Property Type="DateTime" Name="createdon" Precision="3" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+        </EntityType>
+        <ComplexType Name="sp_vw_TeamLeader_Result">
+          <Property Type="String" Name="email" Nullable="false" />
+          <Property Type="Int32" Name="logid" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="project_team">
+          <Key>
+            <PropertyRef Name="teamid" />
+          </Key>
+          <Property Type="Int32" Name="teamid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="teamname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="status" Nullable="false" />
+          <Property Type="Int32" Name="leader_id" Nullable="false" />
+          <Property Type="Boolean" Name="isdeleted" />
+        </EntityType>
+        <ComplexType Name="sp_vw_division_empid_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moddivid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spvwprevstatus_employee_Result">
+          <Property Type="Double" Name="percentage" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spvwstatus_tl_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="percentage" Nullable="true" />
+          <Property Type="Int32" Name="expduration" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="spvw_moduletl_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="modid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_prjid_analyst_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="projid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spvwstatus_Analyst_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="percentage" Nullable="true" />
+          <Property Type="Int32" Name="expduration" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="prjid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spanalystchartdetails_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="percentage" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Admin_Approve">
+          <Key>
+            <PropertyRef Name="clreqid" />
+          </Key>
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="clreqid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="logid" />
+          <Property Type="String" Name="proname" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="prodescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="protype" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="frontend" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="backend" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="duration" />
+          <Property Type="Int32" Name="rangeamount" />
+          <Property Type="String" Name="senddate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="adminapprove" />
+          <Property Type="Int32" Name="analystapprove" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="Boolean" Name="complete" />
+          <Property Type="Boolean" Name="isdeleted" />
+        </EntityType>
+        <ComplexType Name="sp_client_view_Result">
+          <Property Type="String" Name="Fname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Lname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="proname" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_view_analyst_projects_Result">
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="proname" Nullable="true" />
+          <Property Type="String" Name="prodescription" Nullable="true" />
+          <Property Type="String" Name="protype" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="frontend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="backend" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="String" Name="senddate" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_cust_prjdetails_Result">
+          <Property Type="String" Name="proname" Nullable="true" />
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="frontend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="backend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="senddate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="Double" Name="per_completed" Nullable="true" />
+          <Property Type="Int32" Name="exp_completion" Nullable="true" />
+          <Property Type="Int32" Name="adminapprove" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spvw_prjallot_Result">
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="proname" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_module">
+          <Key>
+            <PropertyRef Name="moduleid" />
+          </Key>
+          <Property Type="Int32" Name="moduleid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="prjid" />
+          <Property Type="String" Name="modulename" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="info" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="document_data" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+          <Property Type="Boolean" Name="split" />
+        </EntityType>
+        <ComplexType Name="sp_vw_emp_Result">
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="logid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_division_id_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moddivid" Nullable="true" />
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_emp_team_status_Result">
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Empid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_division_id_staus_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moddivid" Nullable="true" />
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tbl_moddiv">
+          <Key>
+            <PropertyRef Name="moddivid" />
+          </Key>
+          <Property Type="Int32" Name="moddivid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="modid" />
+          <Property Type="String" Name="divname" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="documents" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+        </EntityType>
+        <ComplexType Name="sp_vw_divisionname_Result">
+          <Property Type="Int32" Name="moddivid" Nullable="false" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_moddiv_emp_Result">
+          <Property Type="Int32" Name="modid" Nullable="true" />
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="tmodid" Nullable="false" />
+          <Property Type="Int32" Name="moddivid" Nullable="true" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="startdate" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spvwstatus_Employee_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="percentage" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spvwstatus_Analyst_chart_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="per_completed" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_project_status_admin_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="per_completed" Nullable="true" />
+          <Property Type="Int32" Name="exp_completion" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_cust_msg_Result">
+          <Property Type="String" Name="email" Nullable="false" />
+          <Property Type="String" Name="message" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+          <Property Type="Time" Name="time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_msg_analyst_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="prjid" Nullable="true" />
+          <Property Type="Int32" Name="msg" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SpChatView_Result">
+          <Property Type="String" Name="message" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+          <Property Type="Time" Name="time" Nullable="true" />
+          <Property Type="String" Name="email" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="client_reg">
+          <Key>
+            <PropertyRef Name="regid" />
+          </Key>
+          <Property Type="Int32" Name="regid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="logid" Nullable="false" />
+          <Property Type="String" Name="Fname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Lname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DOB" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Int32" Name="Countryid" Nullable="false" />
+          <Property Type="Int32" Name="Stateid" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Bank" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Branch" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Registraiondate" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_country">
+          <Key>
+            <PropertyRef Name="Country_id" />
+          </Key>
+          <Property Type="Int32" Name="Country_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_state">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Type="Int32" Name="state_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="country_id" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sp_vw_module_id_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="info" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="document_data" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moduleid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_cust_chart_Result">
+          <Property Type="String" Name="proname" Nullable="true" />
+          <Property Type="Double" Name="per_completed" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_analystallot">
+          <Key>
+            <PropertyRef Name="anallotid" />
+          </Key>
+          <Property Type="Int32" Name="anallotid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="analystid" Nullable="false" />
+          <Property Type="Int32" Name="projid" Nullable="false" />
+          <Property Type="Int32" Name="status" Nullable="false" />
+          <Property Type="Boolean" Name="isdeleted" />
+          <Property Type="Boolean" Name="completed" />
+        </EntityType>
+        <ComplexType Name="sp_vw_project_analysst_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="proid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_view_chat" >
+          <Property Type="Int32" Name="from_id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_view_thread" >
+          <Property Type="Int32" Name="msg_id" Nullable="false" />
+          <Property Type="String" Name="message" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_view_thread_bind" >
+          <Property Type="Int32" Name="msg_id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="message" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_analystid_Result">
+          <Property Type="Int32" Name="analystid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_clientprofile_Result">
+          <Property Type="Int32" Name="logid" Nullable="false" />
+          <Property Type="String" Name="Fname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Lname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DOB" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="String" Name="country" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="state" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spvwmodule_assign_prj_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="teamname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="startdate" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="moduleid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spvwmodule_prj_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="info" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_moduleid_team_Result">
+          <Property Type="Int32" Name="modid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_division_id_module_Result">
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="moddivid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_emp_request_tl_req_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="daysneeded" Nullable="true" />
+          <Property Type="String" Name="eenddate" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="reason" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="emp_reqid" Nullable="false" />
+          <Property Type="Int32" Name="modid" Nullable="true" />
+          <Property Type="Int32" Name="divid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_reject_list_Result">
+          <Property Type="String" Name="proname" Nullable="true" />
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="frontend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="backend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="senddate" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="Int32" Name="adminapprove" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_incentive_employee_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="divname" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="incentive" Nullable="true" />
+          <Property Type="DateTime" Name="createdon" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_incentive_Tl_Result">
+          <Property Type="String" Name="Ename" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="total" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spvwstatusadmin_Result">
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="exp_completion" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+          <Property Type="Double" Name="per_completed" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_prj_complete_admin_Result">
+          <Property Type="Int32" Name="prjid" Nullable="true" />
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="documents" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="createdon" Nullable="true" Precision="23" />
+          <Property Type="String" Name="email" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_vw_module_team_Result">
+          <Property Type="String" Name="modulename" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="startdate" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+          <Property Type="String" Name="enddate" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="modid" Nullable="true" />
+          <Property Type="String" Name="prj_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="document_data" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_Admin_Approve_Result">
+          <Property Type="Int32" Name="clreqid" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="proname" Nullable="true" />
+          <Property Type="String" Name="prodescription" Nullable="true" />
+          <Property Type="String" Name="senddate" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="backend" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="frontend" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="softsolutionModelStoreContainer" CdmEntityContainer="softsolutionEntities1">
+          <EntitySetMapping Name="login_tbl"><EntityTypeMapping TypeName="softsolutionModel.login_tbl"><MappingFragment StoreEntitySet="login_tbl">
+            <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="usertype" ColumnName="usertype" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_employee" FunctionName="softsolutionModel.Store.sp_employee" />
+          <FunctionImportMapping FunctionImportName="sp_client_reg" FunctionName="softsolutionModel.Store.sp_client_reg" />
+          <FunctionImportMapping FunctionImportName="sp_cancel" FunctionName="softsolutionModel.Store.sp_cancel" />
+          <FunctionImportMapping FunctionImportName="sp_analystreg" FunctionName="softsolutionModel.Store.sp_analystreg" />
+          <FunctionImportMapping FunctionImportName="sp_analystallot" FunctionName="softsolutionModel.Store.sp_analystallot" />
+          <FunctionImportMapping FunctionImportName="sp_vw_moddiv_id" FunctionName="softsolutionModel.Store.sp_vw_moddiv_id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_id_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_emp_team" FunctionName="softsolutionModel.Store.sp_vw_emp_team">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_team_Result">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Empid" ColumnName="Empid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_division_allot" FunctionName="softsolutionModel.Store.sp_division_allot" />
+          <FunctionImportMapping FunctionImportName="sp_check_allot" FunctionName="softsolutionModel.Store.sp_check_allot" />
+          <FunctionImportMapping FunctionImportName="sp_vw_tlrequest" FunctionName="softsolutionModel.Store.sp_vw_tlrequest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_tlrequest_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_create_division" FunctionName="softsolutionModel.Store.sp_create_division" />
+          <FunctionImportMapping FunctionImportName="sp_TLRequest" FunctionName="softsolutionModel.Store.sp_TLRequest" />
+          <FunctionImportMapping FunctionImportName="sp_addanalyst" FunctionName="softsolutionModel.Store.sp_addanalyst" />
+          <FunctionImportMapping FunctionImportName="sp_addprjleader" FunctionName="softsolutionModel.Store.sp_addprjleader" />
+          <FunctionImportMapping FunctionImportName="sp_addteam" FunctionName="softsolutionModel.Store.sp_addteam" />
+          <FunctionImportMapping FunctionImportName="sp_split_prj_module" FunctionName="softsolutionModel.Store.sp_split_prj_module" />
+          <FunctionImportMapping FunctionImportName="sp_vw_moddiv" FunctionName="softsolutionModel.Store.sp_vw_moddiv">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_Result">
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_employee_requests" FunctionName="softsolutionModel.Store.sp_employee_requests" />
+          <FunctionImportMapping FunctionImportName="sp_employee_submit" FunctionName="softsolutionModel.Store.sp_employee_submit" />
+          <FunctionImportMapping FunctionImportName="sp_vw_emp_request" FunctionName="softsolutionModel.Store.sp_vw_emp_request">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_request_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_emprequest">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_emprequest">
+              <MappingFragment StoreEntitySet="tbl_emprequest">
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="teamid" ColumnName="teamid" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="divid" ColumnName="divid" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spTlResponseRequest" FunctionName="softsolutionModel.Store.spTlResponseRequest" />
+          <FunctionImportMapping FunctionImportName="spempvwempcomplete" FunctionName="softsolutionModel.Store.spempvwempcomplete">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spempvwempcomplete_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_assignmodule">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_assignmodule">
+              <MappingFragment StoreEntitySet="tbl_assignmodule">
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="teamid" ColumnName="teamid" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="modassignid" ColumnName="modassignid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_moddivallot">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_moddivallot">
+              <MappingFragment StoreEntitySet="tbl_moddivallot">
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="teamid" ColumnName="teamid" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spTlsubmit" FunctionName="softsolutionModel.Store.spTlsubmit" />
+          <FunctionImportMapping FunctionImportName="sp_AnalystRequest" FunctionName="softsolutionModel.Store.sp_AnalystRequest" />
+          <FunctionImportMapping FunctionImportName="spvw_tlmodulecomplete" FunctionName="softsolutionModel.Store.spvw_tlmodulecomplete">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvw_tlmodulecomplete_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="teamname" ColumnName="teamname" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="tlcomplid" ColumnName="tlcomplid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_analystsubmit" FunctionName="softsolutionModel.Store.sp_analystsubmit" />
+          <FunctionImportMapping FunctionImportName="sp_vw_tl_request" FunctionName="softsolutionModel.Store.sp_vw_tl_request">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_tl_request_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="teamname" ColumnName="teamname" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="tlreqid" ColumnName="tlreqid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Tbl_TLRequest">
+            <EntityTypeMapping TypeName="softsolutionModel.Tbl_TLRequest">
+              <MappingFragment StoreEntitySet="Tbl_TLRequest">
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="teamid" ColumnName="teamid" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="tlreqid" ColumnName="tlreqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAnalystResponseRequest" FunctionName="softsolutionModel.Store.spAnalystResponseRequest" />
+          <FunctionImportMapping FunctionImportName="sp_vw_analyst_request" FunctionName="softsolutionModel.Store.sp_vw_analyst_request">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_analyst_request_Result">
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="analreqid" ColumnName="analreqid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_anlreq">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_anlreq">
+              <MappingFragment StoreEntitySet="tbl_anlreq">
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="analystid" ColumnName="analystid" />
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="analreqid" ColumnName="analreqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAdminResponseRequest" FunctionName="softsolutionModel.Store.spAdminResponseRequest" />
+          <FunctionImportMapping FunctionImportName="sp_vw_TeamLeader" FunctionName="softsolutionModel.Store.sp_vw_TeamLeader">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_TeamLeader_Result">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="project_team">
+            <EntityTypeMapping TypeName="softsolutionModel.project_team">
+              <MappingFragment StoreEntitySet="project_team">
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="leader_id" ColumnName="leader_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="teamname" ColumnName="teamname" />
+                <ScalarProperty Name="teamid" ColumnName="teamid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_client" FunctionName="softsolutionModel.Store.sp_client" />
+          <FunctionImportMapping FunctionImportName="sp_Approve" FunctionName="softsolutionModel.Store.sp_Approve" />
+          <FunctionImportMapping FunctionImportName="sp_addemployee" FunctionName="softsolutionModel.Store.sp_addemployee" />
+          <FunctionImportMapping FunctionImportName="sp_addanalyst_work_status" FunctionName="softsolutionModel.Store.sp_addanalyst_work_status" />
+          <FunctionImportMapping FunctionImportName="sp_addEmp_work_status" FunctionName="softsolutionModel.Store.sp_addEmp_work_status" />
+          <FunctionImportMapping FunctionImportName="sp_addTL_work_status" FunctionName="softsolutionModel.Store.sp_addTL_work_status" />
+          <FunctionImportMapping FunctionImportName="sp_vw_division_empid" FunctionName="softsolutionModel.Store.sp_vw_division_empid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_empid_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwprevstatus_employee" FunctionName="softsolutionModel.Store.spvwprevstatus_employee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwprevstatus_employee_Result">
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwstatus_tl" FunctionName="softsolutionModel.Store.spvwstatus_tl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_tl_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+                <ScalarProperty Name="expduration" ColumnName="expduration" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvw_moduletl" FunctionName="softsolutionModel.Store.spvw_moduletl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvw_moduletl_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_modulestatus_tl" FunctionName="softsolutionModel.Store.sp_modulestatus_tl" />
+          <FunctionImportMapping FunctionImportName="sp_vw_prjid_analyst" FunctionName="softsolutionModel.Store.sp_vw_prjid_analyst">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_prjid_analyst_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="projid" ColumnName="projid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_projectstatus_analyst" FunctionName="softsolutionModel.Store.sp_projectstatus_analyst" />
+          <FunctionImportMapping FunctionImportName="SpChat" FunctionName="softsolutionModel.Store.SpChat" />
+          <FunctionImportMapping FunctionImportName="spaddprjstatus" FunctionName="softsolutionModel.Store.spaddprjstatus" />
+          <FunctionImportMapping FunctionImportName="spvwstatus_Analyst" FunctionName="softsolutionModel.Store.spvwstatus_Analyst">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Analyst_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+                <ScalarProperty Name="expduration" ColumnName="expduration" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spanalystchartdetails" FunctionName="softsolutionModel.Store.spanalystchartdetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spanalystchartdetails_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Admin_Approve">
+            <EntityTypeMapping TypeName="softsolutionModel.Admin_Approve">
+              <MappingFragment StoreEntitySet="Admin_Approve">
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="analystapprove" ColumnName="analystapprove" />
+                <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="rangeamount" ColumnName="rangeamount" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="backend" ColumnName="backend" />
+                <ScalarProperty Name="frontend" ColumnName="frontend" />
+                <ScalarProperty Name="protype" ColumnName="protype" />
+                <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_client_view" FunctionName="softsolutionModel.Store.sp_client_view">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_client_view_Result">
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_view_analyst_projects" FunctionName="softsolutionModel.Store.sp_view_analyst_projects">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_view_analyst_projects_Result">
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+                <ScalarProperty Name="protype" ColumnName="protype" />
+                <ScalarProperty Name="frontend" ColumnName="frontend" />
+                <ScalarProperty Name="backend" ColumnName="backend" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_cust_prjdetails" FunctionName="softsolutionModel.Store.sp_vw_cust_prjdetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_prjdetails_Result">
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="frontend" ColumnName="frontend" />
+                <ScalarProperty Name="backend" ColumnName="backend" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+                <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+                <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvw_prjallot" FunctionName="softsolutionModel.Store.spvw_prjallot">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvw_prjallot_Result">
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_module">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_module">
+              <MappingFragment StoreEntitySet="tbl_module">
+                <ScalarProperty Name="split" ColumnName="split" />
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="document_data" ColumnName="document_data" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_emp" FunctionName="softsolutionModel.Store.sp_vw_emp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_Result">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_division_id" FunctionName="softsolutionModel.Store.sp_vw_division_id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_emp_team_status" FunctionName="softsolutionModel.Store.sp_vw_emp_team_status">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_team_status_Result">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Empid" ColumnName="Empid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_division_id_staus" FunctionName="softsolutionModel.Store.sp_vw_division_id_staus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_staus_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_moddiv">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_moddiv">
+              <MappingFragment StoreEntitySet="tbl_moddiv">
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_split_complete" FunctionName="softsolutionModel.Store.sp_split_complete" />
+          <FunctionImportMapping FunctionImportName="sp_vw_divisionname" FunctionName="softsolutionModel.Store.sp_vw_divisionname">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_divisionname_Result">
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_moddiv_emp" FunctionName="softsolutionModel.Store.sp_vw_moddiv_emp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moddiv_emp_Result">
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="tmodid" ColumnName="tmodid" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwstatus_Employee" FunctionName="softsolutionModel.Store.spvwstatus_Employee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Employee_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwstatus_Analyst_chart" FunctionName="softsolutionModel.Store.spvwstatus_Analyst_chart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwstatus_Analyst_chart_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_project_status_admin" FunctionName="softsolutionModel.Store.sp_project_status_admin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_project_status_admin_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+                <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_cust_msg" FunctionName="softsolutionModel.Store.sp_vw_cust_msg">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_msg_Result">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_msg_analyst" FunctionName="softsolutionModel.Store.sp_vw_msg_analyst">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_msg_analyst_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpChatView" FunctionName="softsolutionModel.Store.SpChatView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.SpChatView_Result">
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="client_reg">
+            <EntityTypeMapping TypeName="softsolutionModel.client_reg">
+              <MappingFragment StoreEntitySet="client_reg">
+                <ScalarProperty Name="Registraiondate" ColumnName="Registraiondate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Stateid" ColumnName="Stateid" />
+                <ScalarProperty Name="Countryid" ColumnName="Countryid" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+                <ScalarProperty Name="regid" ColumnName="regid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_country">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_country">
+              <MappingFragment StoreEntitySet="tbl_country">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country_id" ColumnName="Country_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_state">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_state">
+              <MappingFragment StoreEntitySet="tbl_state">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_assign_employee" FunctionName="softsolutionModel.Store.sp_assign_employee" />
+          <FunctionImportMapping FunctionImportName="sp_vw_module_id" FunctionName="softsolutionModel.Store.sp_vw_module_id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_module_id_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="document_data" ColumnName="document_data" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_cust_chart" FunctionName="softsolutionModel.Store.sp_vw_cust_chart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_cust_chart_Result">
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_analystallot">
+            <EntityTypeMapping TypeName="softsolutionModel.tbl_analystallot">
+              <MappingFragment StoreEntitySet="tbl_analystallot">
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="projid" ColumnName="projid" />
+                <ScalarProperty Name="analystid" ColumnName="analystid" />
+                <ScalarProperty Name="anallotid" ColumnName="anallotid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_project_analysst" FunctionName="softsolutionModel.Store.sp_vw_project_analysst">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_project_analysst_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="proid" ColumnName="proid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_updateclient_profile" FunctionName="softsolutionModel.Store.sp_updateclient_profile" />
+          <FunctionImportMapping FunctionImportName="sp_view_chat" FunctionName="softsolutionModel.Store.sp_view_chat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_view_chat">
+                <ScalarProperty Name="from_id" ColumnName="from_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_view_thread" FunctionName="softsolutionModel.Store.sp_view_thread">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_view_thread">
+                <ScalarProperty Name="msg_id" ColumnName="msg_id" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_msg_delete" FunctionName="softsolutionModel.Store.sp_msg_delete" />
+          <FunctionImportMapping FunctionImportName="sp_view_thread_bind" FunctionName="softsolutionModel.Store.sp_view_thread_bind">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_view_thread_bind">
+                <ScalarProperty Name="msg_id" ColumnName="msg_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_msg_delete_all" FunctionName="softsolutionModel.Store.sp_msg_delete_all" />
+          <FunctionImportMapping FunctionImportName="sp_message" FunctionName="softsolutionModel.Store.sp_message" />
+          <FunctionImportMapping FunctionImportName="sp_vw_analystid" FunctionName="softsolutionModel.Store.sp_vw_analystid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_analystid_Result">
+                <ScalarProperty Name="analystid" ColumnName="analystid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_clientprofile" FunctionName="softsolutionModel.Store.sp_clientprofile">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_clientprofile_Result">
+                <ScalarProperty Name="logid" ColumnName="logid" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwmodule_assign_prj" FunctionName="softsolutionModel.Store.spvwmodule_assign_prj">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwmodule_assign_prj_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="teamname" ColumnName="teamname" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spvwmodule_prj" FunctionName="softsolutionModel.Store.spvwmodule_prj">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwmodule_prj_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_assignmodule" FunctionName="softsolutionModel.Store.sp_assignmodule" />
+          <FunctionImportMapping FunctionImportName="sp_vw_moduleid_team" FunctionName="softsolutionModel.Store.sp_vw_moduleid_team">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_moduleid_team_Result">
+                <ScalarProperty Name="modid" ColumnName="modid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_division_id_module" FunctionName="softsolutionModel.Store.sp_vw_division_id_module">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_division_id_module_Result">
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="moddivid" ColumnName="moddivid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_emp_request_tl_req" FunctionName="softsolutionModel.Store.sp_vw_emp_request_tl_req">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_emp_request_tl_req_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="daysneeded" ColumnName="daysneeded" />
+                <ScalarProperty Name="eenddate" ColumnName="eenddate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="emp_reqid" ColumnName="emp_reqid" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="divid" ColumnName="divid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_reject_list" FunctionName="softsolutionModel.Store.sp_reject_list">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_reject_list_Result">
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="frontend" ColumnName="frontend" />
+                <ScalarProperty Name="backend" ColumnName="backend" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="adminapprove" ColumnName="adminapprove" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_incentive_employee" FunctionName="softsolutionModel.Store.sp_vw_incentive_employee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_incentive_employee_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="divname" ColumnName="divname" />
+                <ScalarProperty Name="incentive" ColumnName="incentive" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_incentive_Tl" FunctionName="softsolutionModel.Store.sp_vw_incentive_Tl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_incentive_Tl_Result">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_incentive" FunctionName="softsolutionModel.Store.sp_incentive" />
+          <FunctionImportMapping FunctionImportName="spvwstatusadmin" FunctionName="softsolutionModel.Store.spvwstatusadmin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.spvwstatusadmin_Result">
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="exp_completion" ColumnName="exp_completion" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="per_completed" ColumnName="per_completed" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_vw_prj_complete_admin" FunctionName="softsolutionModel.Store.sp_vw_prj_complete_admin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_prj_complete_admin_Result">
+                <ScalarProperty Name="prjid" ColumnName="prjid" />
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="documents" ColumnName="documents" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_update_analyst_submit" FunctionName="softsolutionModel.Store.sp_update_analyst_submit" />
+          <FunctionImportMapping FunctionImportName="sp_vw_module_team" FunctionName="softsolutionModel.Store.sp_vw_module_team">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_vw_module_team_Result">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="modid" ColumnName="modid" />
+                <ScalarProperty Name="prj_name" ColumnName="prj_name" />
+                <ScalarProperty Name="document_data" ColumnName="document_data" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Admin_Approve" FunctionName="softsolutionModel.Store.sp_Admin_Approve">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="softsolutionModel.sp_Admin_Approve_Result">
+                <ScalarProperty Name="clreqid" ColumnName="clreqid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+                <ScalarProperty Name="senddate" ColumnName="senddate" />
+                <ScalarProperty Name="backend" ColumnName="backend" />
+                <ScalarProperty Name="frontend" ColumnName="frontend" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="softsolutionModel.login_tbl" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_emprequest" Width="1.5" PointX="5.375" PointY="5.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_assignmodule" Width="1.5" PointX="7.375" PointY="4.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_moddivallot" Width="1.5" PointX="7.375" PointY="7.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="softsolutionModel.Tbl_TLRequest" Width="1.5" PointX="8.375" PointY="0.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_anlreq" Width="1.5" PointX="0.75" PointY="8.75" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="softsolutionModel.project_team" Width="1.5" PointX="3.375" PointY="9.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="softsolutionModel.Admin_Approve" Width="1.5" PointX="3.375" PointY="0.75" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_module" Width="1.5" PointX="5.375" PointY="0.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_moddiv" Width="1.5" PointX="9.375" PointY="4.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="softsolutionModel.client_reg" Width="1.5" PointX="0.75" PointY="3.75" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_country" Width="1.5" PointX="9.375" PointY="8.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_state" Width="1.5" PointX="10.375" PointY="0.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="softsolutionModel.tbl_analystallot" Width="1.5" PointX="11.375" PointY="3.75" Height="2.1725878906250031" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
